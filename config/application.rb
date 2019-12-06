@@ -7,7 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module BookcafeReviewApp
-  class Application < Rails::Application config.generators do |g|
+  class Application < Rails::Application
     config.generators do |g|
       g.stylesheets false
       g.javascripts false
