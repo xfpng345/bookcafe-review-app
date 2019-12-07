@@ -1,16 +1,4 @@
 <%= render "shared/header"%>
 <div class = "main-box">
-  
-    <% @shops.each do |shop| %>
-      <div class = "shops">
-        <a href= shop_path>
-        <div class = "shops__text">
-          <p class = "shops__text--name" ><%= shop.name %></p>
-          <P class = "shops__text--intro" ><%= shop.text %></P> 
-        </div>
-        <p class = "shops__image" ><%= image_tag shop.image %></p>
-        </a>
-      </div>
-    <%end%>
-
+  <%= render "shared/shops", shop: @shop%>
 </div>
