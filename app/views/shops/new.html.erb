@@ -1,2 +1,9 @@
-<h1>Shops#new</h1>
-<p>Find me in app/views/shops/new.html.erb</p>
+= render "shared/header"
+<div class = "articles-box">
+  <%= form_for @shop do |f| %>
+    <%= f.text_field :name, placeholder: 'ショップ名',class: ""%>
+    <%= f.file_field :image, placeholder: '画像',class: ""%>
+    <%= f.text_area :text, placeholder: '紹介文',wrap: "hard",class: ""%>
+    <%= f.submit '投稿する',class: "article-new__btn"%>
+  <%end%>
+</div>
