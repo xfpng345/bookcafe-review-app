@@ -10,8 +10,9 @@
   </nav>
 
 <% @shops.each do |shop| %>
-<%= shop.name %>
-<%= shop.image %>
+<p class = "aaa" ><%= shop.name %></p>
+
+<%= image_tag shop.image %>
 <%= shop.text %>
 <p></p>
 <%end%>
