@@ -1,0 +1,26 @@
+.main-box{
+  width: 100%;
+  padding: 100px;
+}
+
+.shops{
+  min-width: 70%;
+  min-height: 100%;
+  border: groove 2px;
+  margin: 10px;
+  &__text{
+    float:left;
+    &--name{
+      font-size: 30px;
+    }
+  }
+  &__image{
+    text-align: right;
+    & img{
+    height: 200px;
+    width: 200px;
+    text-align: right;
+    margin: 5px;
+    }
+  }
+}
