@@ -2,4 +2,9 @@
 <div class = "main-box">
   <%= render "shared/shops", shop: @shop%>
 </div>
+<p>検索</p>
+<%= form_tag("", method: :get) do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
 <%= paginate(@shops)%>
