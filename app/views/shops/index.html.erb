@@ -1,0 +1,17 @@
+<nav class = "#fdd835 yellow darken-1">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">The Book cafe DB</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to '検索する', shops_search_path, method: :get %></li>
+        <li><a href="badges.html">投稿する</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<% @shops.each do |shop| %>
+<%= shop.name %>
+<%= shop.image %>
+<%= shop.text %>
+<p></p>
+<%end%>
