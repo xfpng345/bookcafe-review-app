@@ -22,6 +22,15 @@ class ShopsController < ApplicationController
     @shop = Shop.create(shop_params)
     redirect_to root_path
   end
+  
+  
+def destroy
+  @shop = Shop.find(params[:id])
+  @shop.destroy
+  # if article.user_id == current_user.id
+  #   article.destroy
+  # end
+end
 
   private
   def shop_params
