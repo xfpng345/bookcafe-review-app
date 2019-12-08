@@ -2,5 +2,7 @@
 <div class = "main-box">
   <div class = "main-box__image"><%= image_tag @shop.image %></div>
   <div><%= @shop.name %></div>
-  <div><%= @shop.text %></div> 
+  <div><%= @shop.text %></div>
+  <%= link_to "編集", edit_shop_path(@shop), class: ""%>
+  <%# <%= link_to "削除", article_path(@article.id), method: :delete, class: "" %> %>
 </div>
