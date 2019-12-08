@@ -4,5 +4,5 @@
   <div><%= @shop.name %></div>
   <div><%= @shop.text %></div>
   <%= link_to "編集", edit_shop_path(@shop), class: ""%>
-  <%# <%= link_to "削除", article_path(@article.id), method: :delete, class: "" %> %>
+  <%= link_to "削除", shop_path(@shop.id), method: :delete, class: ""%>
 </div>
