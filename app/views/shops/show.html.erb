@@ -7,7 +7,7 @@
   <%= link_to "削除", shop_path(@shop.id), method: :delete, class: ""%>
 </div>
 <%# googlemap %>
-<div id="map" style="width: 800px; height: 400px;"></div>
+<div id="map" style="width: 600px; height: 500px;"></div>
 
 <script>
   handler = Gmaps.build('Google');
@@ -15,5 +15,6 @@
     markers = handler.addMarkers(<%= raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
+    handler.getMap().setZoom(16);
   });
 </script>
