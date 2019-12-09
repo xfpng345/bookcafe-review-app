@@ -5,6 +5,11 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @hash = Gmaps4rails.build_markers(@shop) do |shop, marker|
+      marker.lat shop.latitude
+      marker.lng shop.longitude
+      marker.infowindow shop.name
+    end
   end
 
   def search
@@ -40,7 +45,7 @@ end
 
   private
   def shop_params
-    params.require(:shop).permit(:name, :text, :image)
+    params.require(:shop).permit(:name, :text, :image, :address, :latitude , :longitude ,)
   end
   
 end
