@@ -1,5 +1,5 @@
 class Shop < ApplicationRecord
-  geocoded_by :addres
+  geocoded_by :address
   after_validation :geocode
 
   mount_uploader :image, ImageUploader
