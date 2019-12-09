@@ -22,6 +22,12 @@ class ShopsController < ApplicationController
     @shop = Shop.create(shop_params)
     redirect_to root_path
   end
+
+  def update
+    @shop = Shop.find(params[:id])
+    @shop.update(shop_params)
+    redirect_to shop_path
+  end
   
   
 def destroy
