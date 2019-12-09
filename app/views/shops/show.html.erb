@@ -6,44 +6,14 @@
   <%= link_to "編集", edit_shop_path(@shop), class: ""%>
   <%= link_to "削除", shop_path(@shop.id), method: :delete, class: ""%>
 </div>
-<div id="gmap" style="height:400px;width:600px"></div>
+<%# googlemap %>
+<div id="map" style="width: 800px; height: 400px;"></div>
+
 <script>
-function initMap() {
-  var target = document.getElementById('gmap');  
-  var address = document.getElementById('address').textContent; 
-  var geocoder = new google.maps.Geocoder();  
-  
-  geocoder.geocode({ address: address }, function(results, status){
-     if (status === 'OK' && results[0]){  
-       //マップのインスタンスを変数に代入
-        var map = new google.maps.Map(target, {  
-          center: results[0].geometry.location,
-          zoom: 14
-        });
-       
-       //マーカーの生成
-        var marker = new google.maps.Marker({
-          position: results[0].geometry.location,
-          map: map,
-          animation: google.maps.Animation.DROP
-        });
-       
-      //  //情報ウィンドウの生成
-      //   var infoWindow = new google.maps.InfoWindow({
-      //     content: 'Hello!',
-      //     pixelOffset: new google.maps.Size(0, 5)
-        // });
- 
-      //  //マーカーにリスナーを設定
-      //  marker.addListener('click', function(){
-      //     infoWindow.open(map, marker);
-      //   });
-       
-     }else{ 
-       alert('失敗しました。理由: ' + status);
-       return;
-     }
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
   });
-}
-</script> 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6yW6fH8rpR1lGZUvJY-a7it0XanXIoMk&callback=initMap" async defer></script>
+</script>
