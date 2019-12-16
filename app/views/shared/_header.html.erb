@@ -1,10 +1,25 @@
-<nav class = "#fdd835 yellow darken-1">
+  <nav>
     <div class="nav-wrapper">
-      <div class="brand-logo"><%= link_to "The Book cafe DB", root_path%></div>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><%= link_to '検索する', "#", method: :get %></li>
+      <a href="/" class="brand-logo">The BookCafe DB</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
         <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
       </ul>
     </div>
   </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  
+<script>
+ $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+</script>
