@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   def index
-    @shops = Shop.order("created_at DESC").page(params[:page]).per(5).search(params[:search])
+    @shops = Shop.order("created_at DESC").page(params[:page]).per(6).search(params[:search])
   end
 
   def show
