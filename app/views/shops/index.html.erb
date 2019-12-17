@@ -4,7 +4,7 @@
   <%= text_field_tag :search %>
   <%= submit_tag 'Search', :name => nil %>
 <% end %>
-<div class = "main-box">
-  <%= render "shared/shops", shop: @shop%>
+<div class = "row">
+<%= render "shared/shops", shop: @shop%>
 </div>
 <%= paginate(@shops)%>
