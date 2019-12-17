@@ -1,17 +1,19 @@
-<% @shops.each do |shop| %>
-<div class = "col s12 m6 l4">
-  <div class="card large hoverable">
-    <div class="card-image waves-effect waves-block waves-light ">
-      <%= image_tag shop.image %>
+<div class = "row">
+  <% @shops.each do |shop| %>
+    <div class = "col s12 m6 l4">
+      <div class="card large hoverable">
+        <div class="card-image waves-effect waves-block waves-light ">
+          <%= image_tag shop.image %>
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"><%= shop.name %><i class="material-icons right">more_vert</i></span>
+          <p><%= link_to "詳細", shop_path(shop), method: :get %></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><%= shop.name %><i class="material-icons right">close</i></span>
+          <p><%= shop.text %></p>
+        </div>
+      </div>
     </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4"><%= shop.name %><i class="material-icons right">more_vert</i></span>
-      <p><%= link_to "詳細", shop_path(shop), method: :get %></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"><%= shop.name %><i class="material-icons right">close</i></span>
-      <p><%= shop.text %></p>
-    </div>
-  </div>
-  </div>
-<%end%>
+  <%end%>
+</div>
