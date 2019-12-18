@@ -1,43 +1,43 @@
 <div class="col s12 m6 l5">
-    <div class="row">
-      <%= form_for(@shop, html: {class: "col s12 m6 l5"}) do |f| %>
-        <%# ショップ名 %>
-        <div class="row">
-          <div class="input-field col s12">
-            <%= f.text_field :name, placeholder: "店名", autofocus: true %>
-            <%= f.label :name %>
-          </div>
+  <div class="row">
+    <%= form_for(@shop, html: {class: "col s12 m6 l5"}) do |f| %>
+      <%# ショップ名 %>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :name, placeholder: "店名", autofocus: true %>
+          <%= f.label :name %>
         </div>
-        <%# 紹介文 %>
-        <div class="row">
-          <div class="input-field col s12">
-            <%= f.text_area :text, placeholder: "紹介文",class: "materialize-textarea"%>
-            <%= f.label :description %>
-          </div>
+      </div>
+      <%# 紹介文 %>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_area :text, placeholder: "紹介文",class: "materialize-textarea"%>
+          <%= f.label :description %>
         </div>
-        <%# 住所 %>
-        <div class="row">
-          <div class="input-field col s12">
-            <%= f.text_field :address, placeholder: "住所" %>
-            <%= f.label :adress %>
-          </div>
+      </div>
+      <%# 住所 %>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :address, placeholder: "住所" %>
+          <%= f.label :adress %>
         </div>
-        <%# 画像 %>
-        <div class="#">
-          <div class="file-field input-field gallery_picture">
-            <div class="btn">
-              <span>Upload file</span>
-              <%= f.file_field :image %>
-            </div>
-            <input class="file-path validate" type="text">
+      </div>
+      <%# 画像 %>
+      <div class="#">
+        <div class="file-field input-field gallery_picture">
+          <div class="btn">
+            <span>Upload file</span>
+            <%= f.file_field :image %>
           </div>
-        </div> 
-        <%# 投稿ボタン %>
-        <div class="row">
-          <div class="input-field col s12">
-            <%= f.submit "投稿する", class: "btn orange waves-effect waves-light right" %>
-          </div>
+          <input class="file-path validate" type="text">
         </div>
-      <% end %>
-    </div>
+      </div> 
+      <%# 投稿ボタン %>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.submit "投稿する", class: "btn orange waves-effect waves-light right" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
