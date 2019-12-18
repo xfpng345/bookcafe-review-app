@@ -3,11 +3,11 @@
       <div class="card">
         <div class="card-image">
           <%= image_tag @shop.image %>
-          <span class="card-title"><%= @shop.name %></span>
-          <%= render "shared/gmap-show"%>
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+          <span class="card-title"><%= @shop.name%></span>
         </div>
+        <%= render "shared/gmap-show"%>
         <div class="card-content">
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
           <p><%= @shop.text %></p>
           <%= link_to "編集", edit_shop_path(@shop), class: ""%>
           <%= link_to "削除", shop_path(@shop.id), method: :delete, class: ""%>
