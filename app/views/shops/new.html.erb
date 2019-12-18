@@ -1,8 +1,12 @@
 <%= render "shared/header"%>
 <h3 class="header left-align">おすすめのブックカフェを投稿しよう！</h3>
 <%= render "shared/form"%>
-<input id="pac-input" class="controls" type="text" placeholder="ショップ名を入力して下さい">
-<div id="map" style="width: 700px; height: 400px;"></div>
+<div class="row">
+  <div class="col s12 m12 l5">
+    <input id="pac-input" class="controls" type="text" placeholder="ショップ名を入力して下さい">
+  </div>
+</div>
+<div id="map" style="max-width: 700px; height: 400px;"></div>
 <script>
   function initAutocomplete() {
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -13,7 +17,7 @@
     // Create the search box and link it to the UI element.
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
-     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    //  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
     // Bias the SearchBox results towards current map's viewport.
     map.addListener('bounds_changed', function() {
       searchBox.setBounds(map.getBounds());
