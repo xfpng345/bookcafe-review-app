@@ -1,22 +1,2 @@
 <%= render "shared/header"%>
-<div class = "main-box">
-  <div class = "main-box__image"><%= image_tag @shop.image %></div>
-  <div><%= @shop.name %></div>
-  <div><%= @shop.text %></div>
-  <%= link_to "編集", edit_shop_path(@shop), class: ""%>
-  <%= link_to "削除", shop_path(@shop.id), method: :delete, class: ""%>
-</div>
-<%# googlemap %>
-<div id="map" style="width: 600px; height: 500px;"></div>
-
-
-<script src="//maps.google.com/maps/api/js?key=AIzaSyB6GxRwG_nFSYMLRwIGde9C4_pI2uycmOk"></script>
-<script>
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(<%= raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    handler.getMap().setZoom(16);
-  });
-</script>
+<%= render "shared/shop"%>
