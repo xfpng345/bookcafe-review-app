@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col s12 m12 l6">
+      <div class="card">
+        <div class="card-image">
+          <%= image_tag @shop.image %>
+          <span class="card-title"><%= @shop.name %></span>
+          <%= render "shared/gmap-show"%>
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <p><%= @shop.text %></p>
+          <%= link_to "編集", edit_shop_path(@shop), class: ""%>
+          <%= link_to "削除", shop_path(@shop.id), method: :delete, class: ""%>
+        </div>
+      </div>
+    </div>
+  </div>
