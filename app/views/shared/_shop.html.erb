@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col s12 m12 l6">
+      <div class="card">
+        <div class="card-image">
+          <%= image_tag @shop.image %>
+          <span class="card-title"><%= @shop.name%></span>
+        </div>
+        <%= render "shared/gmap-show"%>
+        <div class="card-content">
+          <p class="flow-text"><%= @shop.text %></p>
+          <a href="/shops/<%= @shop.id %>/edit" class="waves-effect waves-light btn"><i class="material-icons right">edit</i>編集</a>
+          <a href="/shops/<%= @shop.id %>" data-method="delete" class="waves-effect waves-light btn"><i class="material-icons right">delete</i>削除</a>
+        </div>
+      </div>
+    </div>
+  </div>
