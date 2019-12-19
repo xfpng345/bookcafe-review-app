@@ -1,0 +1,53 @@
+<div class="row">
+  <%= form_for(@shop, html: {class: "col s12 m12 l5"}) do |f| %>
+    <%# ショップ名 %>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.text_field :name, placeholder: "店名", autofocus: true %>
+        <%= f.label :name %>
+      </div>
+    </div>
+    <%# 紹介文 %>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.text_area :text, placeholder: "紹介文",class: "materialize-textarea"%>
+        <%= f.label :description %>
+      </div>
+    </div>
+    <%# エリア %>
+    <div class="row">
+    <div class="input-field col s12">
+      <%= f.select :area, ['キタ(梅田)エリア', 'ミナミ(なんば)エリア', '天王寺・阿倍野・新世界エリア'], {include_blank: 'エリアを選択してください'}%>
+      <label>choose area</label>
+    </div>
+    </div>
+    <script>
+      $(document).ready(function(){
+        $('select').formSelect();
+      });
+    </script>
+    <%# 住所 %>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.text_field :address, placeholder: "住所" %>
+        <%= f.label :adress %>
+      </div>
+    </div>
+    <%# 画像 %>
+    <div class="#">
+      <div class="file-field input-field gallery_picture">
+        <div class="btn">
+          <span>Upload file</span>
+          <%= f.file_field :image %>
+        </div>
+        <input class="file-path validate" type="text">
+      </div>
+    </div> 
+    <%# 投稿ボタン %>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.submit "投稿する", class: "btn orange waves-effect waves-light right" %>
+      </div>
+    </div>
+  <% end %>
+</div>
