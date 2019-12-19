@@ -1,8 +1,4 @@
 <%= render "shared/header"%>
-<div class = "main-box">
-  <%= form_for @shop do |f|%>
-    <%= f.text_field :name, placeholder: 'タイトル ※10文以内',class: ""%>
-    <%= f.file_field :image, placeholder: '画像',class: ""%>
-    <%= f.text_area :text, placeholder: '本文',wrap: "hard",class: ""%>
-    <%= f.submit '更新する',class: ""%>
-  <% end %>  
+<h3 class="header left-align">編集ページ</h3>
+<%= render "shared/form"%>
+<%= render "shared/gmap-new"%>
