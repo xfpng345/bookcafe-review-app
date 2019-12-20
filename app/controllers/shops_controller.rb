@@ -45,7 +45,7 @@ end
 
   private
   def shop_params
-    params.require(:shop).permit(:name, :text, :image, :address, :latitude , :longitude ,:area)
+    params.require(:shop).permit(:name, :text, :image, :address, :latitude , :longitude ,:area).merge(user_id: current_user.id)
   end
   
 end
