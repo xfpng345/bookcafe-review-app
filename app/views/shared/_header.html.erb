@@ -4,9 +4,9 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li><%= link_to "ログイン", new_user_session_path%></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "マイページ", user_path(current_user.id) %></li>
       </ul>
     </div>
   </nav>
