@@ -1,3 +1,18 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<%= @user.id %>
+<div class="col s12 m8 offset-m2 l6 offset-l3">
+  <div class="card-panel grey lighten-5 z-depth-1">
+    <div class="row valign-wrapper">
+      <div class="col s2">
+        <%= image_tag current_user.image, class: "circle responsive-img" %>
+      </div>
+      <div class="col s10">
+        <h3><%= current_user.username%></h3>
+        <span class="black-text">
+          <%= link_to "プロフィールを編集する", edit_user_registration_path(current_user), method: :get %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/shops", shop: @shop%>
+<%= paginate(@shops)%>
