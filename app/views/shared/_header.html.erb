@@ -1,19 +1,19 @@
-  <nav>
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo">The BookCafe DB</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <% if user_signed_in? %>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to "マイページ", user_path(current_user) %></li>
-          <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
-        <% else %>
-          <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
-          <li><%= link_to "ログイン", new_user_session_path%></li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">The BookCafe DB</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <% if user_signed_in? %>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "マイページ", user_path(current_user) %></li>
+        <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
+      <% else %>
+        <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
+        <li><%= link_to "ログイン", new_user_session_path%></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
 
 <ul class="sidenav" id="mobile-demo">
   <% if user_signed_in? %>
