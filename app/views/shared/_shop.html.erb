@@ -8,8 +8,10 @@
         <%= render "shared/gmap-show"%>
         <div class="card-content">
           <p class="flow-text"><%= @shop.text %></p>
-          <a href="/shops/<%= @shop.id %>/edit" class="waves-effect waves-light btn"><i class="material-icons right">edit</i>編集</a>
-          <a href="/shops/<%= @shop.id %>" data-method="delete" class="waves-effect waves-light btn"><i class="material-icons right">delete</i>削除</a>
+            <% if @shop.user_id == current_user.id %>
+              <a href="/shops/<%= @shop.id %>/edit" class="waves-effect waves-light btn"><i class="material-icons right">edit</i>編集</a>
+              <a href="/shops/<%= @shop.id %>" data-method="delete" class="waves-effect waves-light btn"><i class="material-icons right">delete</i>削除</a>
+            <% end %>
         </div>
       </div>
     </div>
