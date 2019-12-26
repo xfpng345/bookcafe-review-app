@@ -61,7 +61,7 @@
         <h3>アカウントを削除</h3>
 
         <p>アカウントを削除しますか？
-          <%= button_to "削除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+          <%= button_to "削除", registration_path(resource_name), data: { confirm: "本当に削除しますか?" }, method: :delete %>
         </p>
 
         <%= link_to "マイページに戻る", :back %>
