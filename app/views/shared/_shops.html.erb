@@ -9,6 +9,7 @@
           <span class="card-title activator grey-text text-darken-4"><%= shop.name %><i class="material-icons right">more_vert</i></span>
           <span><%= shop.area %></span>
           <p><%= link_to "詳細", shop_path(shop), method: :get %></p>
+          <p class="right-align" style="padding-top: 50px;"><%= shop.user.username %></p>
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4"><%= shop.name %><i class="material-icons right">close</i></span>
