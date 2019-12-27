@@ -34,8 +34,8 @@
       </div>
     </div>
     <%# 画像 %>
-    <div class="#">
-      <div class="file-field input-field gallery_picture">
+    <div class="row">
+      <div class="file-field col s12">
         <div class="btn">
           <span>Upload file</span>
           <%= f.file_field :image %>
@@ -44,10 +44,6 @@
       </div>
     </div> 
     <%# 投稿ボタン %>
-    <div class="row">
-      <div class="input-field col s12">
-        <%= f.submit "投稿する", class: "btn orange waves-effect waves-light right" %>
-      </div>
-    </div>
+      <%= button_tag "投稿する", class: "btn orange waves-effect waves-light right", type: "button", onclick: "submit();"%>
   <% end %>
 </div>
