@@ -40,9 +40,6 @@ class ShopsController < ApplicationController
 def destroy
   @shop = Shop.find(params[:id])
   @shop.destroy
-  # if article.user_id == current_user.id
-  #   article.destroy
-  # end
 end
 
   private
