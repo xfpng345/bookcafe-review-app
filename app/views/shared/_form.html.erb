@@ -38,9 +38,9 @@
       <div class="file-field col s12">
         <div class="btn">
           <span>Upload file</span>
-          <%= f.file_field :image,id:"file" %>
+          <%= f.file_field :image,id:"user_img" %>
         </div>
-        <div id="result" style="text-align: center; padding-top: 10px;"></div>
+          <%= image_tag @shop.image, id: "img_prev" %>
         <input class="file-path validate" type="text">
       </div>
     </div> 
@@ -49,19 +49,26 @@
   <% end %>
 </div>
 
-<script>
-$(function(){
-    $('#file').change(function(){
-        $('img').remove();
-        var file = $(this).prop('files')[0];
-        if(!file.type.match('image.*')){
-            return;
+<script type="text/javascript">
+  $(function() {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#img_prev').attr('src', e.target.result);
         }
-        var fileReader = new FileReader();
-        fileReader.onloadend = function() {
-            $('#result').html('<img class="upload" style="max-width: 500px;max-height: 500px;object-fit: cover;" src="' + fileReader.result + '"/>');
+        reader.readAsDataURL(input.files[0]);
         }
-        fileReader.readAsDataURL(file);
+    }
+    $("#user_img").change(function(){
+        readURL(this);
     });
-});
+  });
 </script>
+
+<style type="text/css">
+#img_prev{
+  max-width: 400px;
+  max-height: 400px;
+  object-fit: contain;
+</style>
