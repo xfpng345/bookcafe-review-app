@@ -25,7 +25,7 @@ class ShopsController < ApplicationController
     @shop = Shop.new
    end
 
-   def create
+  def create
     @shop = Shop.create(shop_params)
     redirect_to root_path
   end
