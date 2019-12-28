@@ -6,9 +6,13 @@
       </div>
       <div class="col s10">
         <h3 class="flow-text"><%= @user.username%></h3>
-        <span class="black-text">
-          <%= link_to "プロフィールを編集する", edit_user_registration_path(current_user), method: :get %>
-        </span>
+        <% if user_signed_in? %>
+          <% if @user.id == current_user.id %>
+            <span class="black-text">
+              <%= link_to "プロフィールを編集する", edit_user_registration_path(@user), method: :get %>
+            </span>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
