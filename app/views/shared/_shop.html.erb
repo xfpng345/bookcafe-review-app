@@ -13,6 +13,10 @@
               <a href="/shops/<%= @shop.id %>/edit" class="waves-effect waves-light btn"><i class="material-icons right">edit</i>編集</a>
               <a href="/shops/<%= @shop.id %>" data-method="delete" class="waves-effect waves-light btn"><i class="material-icons right">delete</i>削除</a>
             <% end %>
+            <div class="right valign-wrapper">
+              <%= image_tag @shop.user.image,class:"right", style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;margin-right: 5px;" %>
+              <h6><%= @shop.user.username %></h6>
+            </div>
           <% end %>
         </div>
       </div>
