@@ -2,10 +2,10 @@
   <div class="card-panel grey lighten-5 z-depth-1">
     <div class="row valign-wrapper">
       <div class="col s2">
-        <%= image_tag current_user.image.thumb, class: "circle responsive-img" %>
+        <%= image_tag @user.image.thumb, class: "circle responsive-img" %>
       </div>
       <div class="col s10">
-        <h3 class="flow-text"><%= current_user.username%></h3>
+        <h3 class="flow-text"><%= @user.username%></h3>
         <span class="black-text">
           <%= link_to "プロフィールを編集する", edit_user_registration_path(current_user), method: :get %>
         </span>
