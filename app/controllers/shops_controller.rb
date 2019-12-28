@@ -1,5 +1,6 @@
 class ShopsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :validate_shop,only: [:edit, :update, :destroy]
 
   def index
     @shops = Shop.order("created_at DESC").page(params[:page]).per(6).search(params[:search])
@@ -47,4 +48,10 @@ end
     params.require(:shop).permit(:name, :text, :image, :address, :latitude , :longitude ,:area).merge(user_id: current_user.id)
   end
   
+  def validate_shop
+    @shop = Shop.find_by(id:params[:id])
+    if @shop.user_id != current_user.id
+      redirect_to root_path
+    end
+  end
 end
