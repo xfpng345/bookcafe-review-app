@@ -1,5 +1,5 @@
-<div class="row">
-  <%= form_for(@shop, html: {class: "col s12 m12 l5"}) do |f| %>
+<div class="col s12 m12 l7">
+  <%= form_for(@shop) do |f| %>
     <%# ショップ名 %>
     <div class="row">
       <div class="input-field col s12">
@@ -34,20 +34,41 @@
       </div>
     </div>
     <%# 画像 %>
-    <div class="#">
-      <div class="file-field input-field gallery_picture">
+    <div class="row">
+      <div class="file-field col s12">
         <div class="btn">
           <span>Upload file</span>
-          <%= f.file_field :image %>
+          <%= f.file_field :image,id:"user_img" %>
         </div>
+          <%= image_tag @shop.image, id: "img_prev" %>
         <input class="file-path validate" type="text">
       </div>
     </div> 
     <%# 投稿ボタン %>
-    <div class="row">
-      <div class="input-field col s12">
-        <%= f.submit "投稿する", class: "btn orange waves-effect waves-light right" %>
-      </div>
-    </div>
+      <%= button_tag "投稿する", class: "btn orange waves-effect waves-light right", type: "button", onclick: "submit();"%>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  $(function() {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#user_img").change(function(){
+        readURL(this);
+    });
+  });
+</script>
+
+<style type="text/css">
+#img_prev{
+  max-width: 400px;
+  max-height: 400px;
+  object-fit: contain;
+</style>
