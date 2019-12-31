@@ -13,10 +13,10 @@
           <a href="/shops/<%= @shop.id %>" data-method="delete" class="waves-effect waves-light btn"><i class="material-icons right">delete</i>削除</a>
         <% end %>
       <% end %>
-      <div class="right valign-wrapper">
-        <%= image_tag @shop.user.image,class:"right", style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;margin-right: 5px;" %>
-        <h6><%= link_to @shop.user.username, user_path(@shop.user_id) %></h6>
-      </div>
+      <%= link_to user_path(@shop.user_id), class:"right valign-wrapper" do %>
+        <%= image_tag @shop.user.image,class:"right hoverable", style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;margin-right: 5px;" %>
+        <h6 class="hoverable"><%= @shop.user.username %></h6>
+      <% end %>
     </div>
   </div>
 </div>
