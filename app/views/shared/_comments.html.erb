@@ -1,0 +1,28 @@
+<div class="col s12 m12 l6">
+  <div class="card">
+    <% @comments.each do |comment| %>
+      <div class="col s12" style="margin: 5px;">
+        <div class="col s2 m2 l2 left">
+          <%= link_to user_path(@shop.user_id) do %>
+            <%= image_tag comment.shop.user.image,class:"hoverable", style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;" %><br>
+            <p class="l6 left-align hoverable">
+              <%= comment.shop.user.username %>
+            </p>
+          <% end %>
+        </div>
+        <p class="balloon1">
+          <%= comment.text %>
+        </p>
+      </div>
+    <% end %>
+    <%= form_for [@shop, @comment] do |f| %>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :text, placeholder:"コメント",wrap: "hard" %>
+          <%= f.label :comment %>
+          <%= f.submit 'コメントする' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
