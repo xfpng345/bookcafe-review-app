@@ -8,6 +8,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    Comment.find_by(id: params[:id],shop_id: params[:shop_id]).destroy
+    redirect_to :back
+  end
+
   private
   def comment_params
     params.require(:comment).permit(:text).merge(user_id: current_user.id)
