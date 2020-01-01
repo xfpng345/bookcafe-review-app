@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    Comment.find_by(id: params[:id],shop_id: params[:shop_id]).destroy
+    @comment = Comment.find_by(id: params[:id],shop_id: params[:shop_id])
+    @comment.destroy if @comment.user_id == current_user.id
     redirect_to :back
   end
 
