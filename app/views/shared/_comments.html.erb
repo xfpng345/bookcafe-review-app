@@ -13,9 +13,14 @@
         <p class="balloon1">
           <%= comment.text %>
         </p>
-        <p>
-          <%=link_to "削除", shop_comment_path(comment.shop.id, comment.id), method: :delete %>
-        </p>
+        <div class="right">
+          <%= comment.created_at %>
+          <% if user_signed_in? %>
+            <% if comment.user_id == current_user.id %>
+              <%=link_to "削除", shop_comment_path(comment.shop.id, comment.id), method: :delete %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     <% end %>
     <%= form_for [@shop, @comment] do |f| %>
