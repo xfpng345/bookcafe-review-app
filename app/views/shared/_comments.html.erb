@@ -13,6 +13,9 @@
         <p class="balloon1">
           <%= comment.text %>
         </p>
+        <p>
+          <%=link_to "削除", shop_comment_path(comment.shop.id, comment.id), method: :delete %>
+        </p>
       </div>
     <% end %>
     <%= form_for [@shop, @comment] do |f| %>
