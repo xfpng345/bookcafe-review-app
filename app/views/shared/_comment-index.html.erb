@@ -1,0 +1,25 @@
+<% comments.each do |comment| %>
+  <% unless comment.id.nil? %>
+      <div class="col s12" style="margin: 5px;">
+        <div class="col s2 m2 l2 left">
+          <%= link_to user_path(comment.user_id) do %>
+            <%= image_tag comment.user.image,class:"hoverable", style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;" %><br>
+            <p class="l6 left-align hoverable">
+              <%= comment.user.username %>
+            </p>
+          <% end %>
+        </div>
+        <p class="balloon1">
+          <%= comment.text %>
+        </p>
+        <div class="right">
+          <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
+          <% if user_signed_in? %>
+            <% if comment.user_id == current_user.id %>
+              <%=link_to "削除", shop_comment_path(comment.shop.id, comment.id), method: :delete, remote: true %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
