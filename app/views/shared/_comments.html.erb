@@ -1,14 +1,16 @@
+<%# コメント一覧 %>
 <div class="col s12 m12 l6">
-  <div class="card" style="max-height: 50vw;overflow: scroll;">
-  <%# コメント一覧 %>
+  <div class="card" style="max-height: 40vw;overflow: scroll;">
     <div id="comments_area">
       <%= render partial: 'shared/comment-index', locals: { comments: @comments } %>
-    </div>  
-    <%# コメント投稿 %>
-    <% if user_signed_in? %>
-      <%= render partial: 'shared/form-comment', locals: { comment: @comment, shop: @shop } %>
-    <% else %>
-      <div class="row"></div>
-    <% end %>
+    </div>
   </div>
 </div>
+<%# コメント投稿 %>
+<% if user_signed_in? %>
+  <div class="col s12 m12 l6">
+    <div class="card" style="max-height: 50vw;overflow: scroll;">
+      <%= render partial: 'shared/form-comment', locals: { comment: @comment, shop: @shop } %>
+    </div>
+  </div>
+<% end %>
