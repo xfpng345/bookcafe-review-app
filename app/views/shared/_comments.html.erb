@@ -1,36 +1,16 @@
+<%# コメント一覧 %>
 <div class="col s12 m12 l6">
-  <div class="card">
-    <% @comments.each do |comment| %>
-      <div class="col s12" style="margin: 5px;">
-        <div class="col s2 m2 l2 left">
-          <%= link_to user_path(comment.user_id) do %>
-            <%= image_tag comment.user.image,class:"hoverable", style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;" %><br>
-            <p class="l6 left-align hoverable">
-              <%= comment.user.username %>
-            </p>
-          <% end %>
-        </div>
-        <p class="balloon1">
-          <%= comment.text %>
-        </p>
-        <div class="right">
-          <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
-          <% if user_signed_in? %>
-            <% if comment.user_id == current_user.id %>
-              <%=link_to "削除", shop_comment_path(comment.shop.id, comment.id), method: :delete %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-    <%= form_for [@shop, @comment] do |f| %>
-      <div class="row">
-        <div class="input-field col s12">
-          <%= f.text_field :text, placeholder:"コメント",wrap: "hard" %>
-          <%= f.label :comment %>
-          <%= f.submit 'コメントする' %>
-        </div>
-      </div>
-    <% end %>
+  <div class="card" style="max-height: 40vw;overflow: scroll;">
+    <div id="comments_area">
+      <%= render partial: 'shared/comment-index', locals: { comments: @comments } %>
+    </div>
   </div>
 </div>
+<%# コメント投稿 %>
+<% if user_signed_in? %>
+  <div class="col s12 m12 l6">
+    <div class="card" style="max-height: 50vw;overflow: scroll;">
+      <%= render partial: 'shared/form-comment', locals: { comment: @comment, shop: @shop } %>
+    </div>
+  </div>
+<% end %>
