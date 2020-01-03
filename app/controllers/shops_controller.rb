@@ -8,6 +8,8 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @comment = Comment.new
+    @comments = @shop.comments.includes(:user)  
     @hash = Gmaps4rails.build_markers(@shop) do |shop, marker|
       marker.lat shop.latitude
       marker.lng shop.longitude
