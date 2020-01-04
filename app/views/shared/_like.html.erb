@@ -1,5 +1,4 @@
 <% if user_signed_in? %>
-
   <% unless shop.like_user(current_user.id).blank? %>
     <%= link_to shop_like_path(shop_id: shop.id ,id: shop.likes[0].id), method: :delete, remote: true do %>
       <div class="vertical_like">
@@ -19,9 +18,7 @@
       </div>
     <% end %>
   <% end %>
-
 <% else %>
-
   <% if shop.likes_count > 0 %>
     <div class="vertical_like">
       <i class="material-icons red-text">favorite</i>
@@ -37,5 +34,4 @@
       </span>
     </div>
   <% end %>
-
 <% end %>
