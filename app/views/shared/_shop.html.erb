@@ -2,6 +2,9 @@
   <div class="card" style="padding-bottom: 100px;">
     <div class="card-image">
       <%= image_tag @shop.image %>
+      <div class="flow-text" id="likes_buttons_<%= @shop.id %>">
+        <%= render partial: 'shared/like', locals: { shop: @shop, likes: @likes} %>
+      </div>
       <span class="card-title"><%= @shop.name%></span>
     </div>
     <%= render "shared/gmap-show"%>
