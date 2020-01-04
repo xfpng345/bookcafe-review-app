@@ -13,7 +13,21 @@
             <%= image_tag shop.user.image,class:"right hoverable", style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;margin-right: 5px;" %>
             <h6 class="hoverable"><%= shop.user.username %></h6>
           <% end %>
+          <% if shop.likes_count > 0 %>
+            <div class="vertical_like">
+              <i class="material-icons red-text">favorite</i>
               <span class="red-text">
+                <%= shop.likes_count %>
+              </span>
+            </div>
+          <% else %>
+            <div class="vertical_like">
+              <i class="material-icons grey-text text-darken-2">favorite_border</i>
+              <span class="grey-text text-darken-2">
+                <%= shop.likes_count %>
+              </span>
+            </div>
+          <% end %>
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4"><%= shop.name %><i class="material-icons right">close</i></span>
