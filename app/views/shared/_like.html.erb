@@ -1,0 +1,41 @@
+<% if user_signed_in? %>
+
+  <% unless shop.like_user(current_user.id).blank? %>
+    <%= link_to shop_like_path(shop_id: shop.id ,id: shop.likes[0].id), method: :delete, remote: true do %>
+      <div class="vertical_like">
+        <i class="material-icons red-text">favorite</i>
+        <span class="red-text">
+          <%= shop.likes_count %>
+        </span>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to shop_likes_path(shop.id), method: :post, remote: true do %>
+      <div class="vertical_like">
+        <i class="material-icons grey-text text-darken-2">favorite_border</i>
+        <span class="grey-text text-darken-2">
+          <%= shop.likes_count %>
+        </span>
+      </div>
+    <% end %>
+  <% end %>
+
+<% else %>
+
+  <% if shop.likes_count > 0 %>
+    <div class="vertical_like">
+      <i class="material-icons red-text">favorite</i>
+      <span class="red-text">
+        <%= shop.likes_count %>
+      </span>
+    </div>
+  <% else %>
+    <div class="vertical_like">
+      <i class="material-icons grey-text text-darken-2">favorite_border</i>
+      <span class="grey-text text-darken-2">
+        <%= shop.likes_count %>
+      </span>
+    </div>
+  <% end %>
+
+<% end %>
