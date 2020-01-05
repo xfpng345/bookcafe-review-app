@@ -17,6 +17,6 @@
     </div>
   </div>
 </div>
-
-<%= render "shared/shops", shop: @shop%>
+<%= render partial: "shared/shops", object: @shops, as: :shops %>
+<%= render partial: "shared/shops", object: @liked_shops, as: :shops %>
 <%= paginate(@shops)%>
