@@ -1,31 +1,11 @@
-<div class="row">
-  <div class="col s12">
-    <div class="card-panel grey lighten-5 z-depth-1">
-      <div class="row valign-wrapper">
-        <div class="col s2">
-          <%= image_tag @user.image.thumb, class: "circle responsive-img" %>
-        </div>
-        <div class="col s10">
-          <h3 class="flow-text"><%= @user.username%></h3>
-          <% if user_signed_in? %>
-            <% if @user.id == current_user.id %>
-              <span class="black-text">
-                <%= link_to "プロフィールを編集する", edit_user_registration_path(@user), method: :get %>
-              </span>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render "shared/profile" %>
 
 <ul id="tabs-swipe-demo" class="tabs">
   <li class="tab col s3"><a class="active" href="#test-swipe-1">投稿一覧</a></li>
   <li class="tab col s3"><a href="#test-swipe-2">いいね一覧</a></li>
 </ul>
 <div id="test-swipe-1" class="col s12"><%= render partial: "shared/shops", object: @shops, as: :shops %></div>
-<div id="test-swipe-2" class="col s12"><%= render partial: "shared/shops", object: @liked_shops, as: :shops %></div>
+<div id="test-swipe-2" class="col s12">  <%= render partial: "shared/shops", object: @liked_shops, as: :shops %></div>
 
 <script>
 $(document).ready(function(){
