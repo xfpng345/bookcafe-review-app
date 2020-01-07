@@ -1,2 +1,5 @@
-<%= render "shared/search"%>
-<%= render partial: "shared/shops", object: @shops, as: :shops %>
+<div class="row">
+  <%= render "shared/search"%>
+  <%= render partial: "shared/shops", object: @shops, as: :shops %>
+</div>
+<%= paginate(@shops)%>
