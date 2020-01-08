@@ -3,7 +3,11 @@ class ShopsController < ApplicationController
   before_action :validate_shop,only: [:edit, :update, :destroy]
 
   def index
-    @shops = Shop.order("created_at DESC").page(params[:page]).per(6).search(params[:search])
+    # @shops = Shop.order("created_at DESC").page(params[:page]).per(6)
+    
+    @search = Shop.ransack(params[:q])
+    # # 検索結果
+    @shops = @search.result
   end
 
   def show
@@ -15,9 +19,6 @@ class ShopsController < ApplicationController
       marker.lng shop.longitude
       marker.infowindow render_to_string(partial: "shops/infowindow", locals: { shop: shop })
     end
-  end
-
-  def search
   end
 
   def edit
