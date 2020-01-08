@@ -8,11 +8,6 @@ class Shop < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   
-  def self.search(search)
-    return Shop.all unless search
-    Shop.where(['name LIKE ?', "%#{search}%"])
-  end
-
   def like_user(user_id)
     likes.find_by(user_id: user_id)
   end
