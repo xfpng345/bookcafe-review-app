@@ -12,9 +12,7 @@
     <div>
       <%= f.select( :sorts, {'並び替え': 'updated_at desc', 'いいねの多い順': 'likes_count desc','いいねの少ない': 'likes_count asc','日付の新しい順': 'updated_at desc', '日付の古い順': 'updated_at asc' })%>
     </div>
-    <div class="actions">
-      <%= f.submit "検索" %>
-    </div>
+    <%= button_tag "検索", class: "btn waves-effect waves-light col s12", type: "button", onclick: "submit();"%>
   <% end %>
   </div>
 </div>
