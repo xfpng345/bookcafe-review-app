@@ -1,21 +1,24 @@
-<div class="row">
+<div class="col s12 m3 l3">
+  <div class="card" style="padding: 10px;">
   <%= search_form_for @search do |f| %>
-    <div class="col s6 m4 l4">
+    <div>
       <%= f.label :area_eq_any, "エリアを選択" %>
       <%= f.select :area_eq_any, ['キタ(梅田)エリア', 'ミナミ(なんば)エリア', '天王寺・阿倍野・新世界エリア'], {disabled: 'エリアを選択してください'}, { multiple: true } %>
     </div>
-    <div class="col s6 m4 l4">
+    <div>
       <%= f.label :name_or_user_username_cont, "店名またはユーザー名で検索" %>
       <%= f.search_field :name_or_user_username_cont %>
     </div>
-    <div class="col s3 m3 l3">
+    <div>
       <%= f.select( :sorts, {'並び替え': 'updated_at desc', 'いいねの多い順': 'likes_count desc','いいねの少ない': 'likes_count asc','日付の新しい順': 'updated_at desc', '日付の古い順': 'updated_at asc' })%>
     </div>
     <div class="actions">
       <%= f.submit "検索" %>
     </div>
   <% end %>
+  </div>
 </div>
+
 
 <script>
  $(document).ready(function(){
