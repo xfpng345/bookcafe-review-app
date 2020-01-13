@@ -10,7 +10,7 @@
             <div class="left">
               <%= current_user.username %>
             </div>
-            <%= image_tag current_user.image, style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;margin-left: 5px;" %>
+            <%= image_tag current_user.image,class: "image-icon" %>
           <% end %>
         </li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
@@ -30,7 +30,7 @@
         <div class="left">
           <%= current_user.username %>
         </div>
-          <%= image_tag current_user.image, style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;margin-left: 5px;" %>
+          <%= image_tag current_user.image, class: "image-icon" %>
       <% end %>
     </li>
     <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
