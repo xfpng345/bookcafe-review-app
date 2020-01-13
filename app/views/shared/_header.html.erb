@@ -7,10 +7,10 @@
         <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
         <li>
           <%= link_to user_path(current_user),class:"right valign-wrapper" do %>
-          <div class="left">
-            <%= current_user.username %>
-          </div>
-          <%= image_tag current_user.image, style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;margin-left: 5px;" %>
+            <div class="left">
+              <%= current_user.username %>
+            </div>
+            <%= image_tag current_user.image, style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;margin-left: 5px;" %>
           <% end %>
         </li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
