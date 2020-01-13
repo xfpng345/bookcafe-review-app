@@ -1,13 +1,25 @@
-<nav>
-  <div class="nav-wrapper">
-    <form>
-      <%= form_tag shops_path, :method => 'get' do %>
-       <div class="input-field">
-          <%= search_field_tag :search, params[:search], id: "search" %>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-      <% end %>
-    </form>
+<div class="col s12 m3 l3">
+  <div class="card" style="padding: 10px;height: 270px;">
+  <%= search_form_for @search do |f| %>
+    <div>
+      <%= f.label :area_eq_any, "エリアを選択" %>
+      <%= f.select :area_eq_any, ['キタ(梅田)エリア', 'ミナミ(なんば)エリア', '天王寺・阿倍野・新世界エリア'], {disabled: 'エリアを選択してください'}, { multiple: true } %>
+    </div>
+    <div>
+      <%= f.label :name_or_user_username_cont, "店名またはユーザー名で検索" %>
+      <%= f.search_field :name_or_user_username_cont %>
+    </div>
+    <div>
+      <%= f.select( :sorts, {'並び替え': 'updated_at desc', 'いいねの多い順': 'likes_count desc','いいねの少ない': 'likes_count asc','日付の新しい順': 'updated_at desc', '日付の古い順': 'updated_at asc' })%>
+    </div>
+    <%= button_tag "検索", class: "btn waves-effect waves-light col s12", type: "button", onclick: "submit();"%>
+  <% end %>
   </div>
-</nav>
+</div>
+
+
+<script>
+ $(document).ready(function(){
+    $('select').formSelect();
+    });
+</script>
