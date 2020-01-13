@@ -4,7 +4,6 @@
     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <% if user_signed_in? %>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
         <li>
           <%= link_to user_path(current_user),class:"right valign-wrapper" do %>
@@ -14,6 +13,7 @@
           <%= image_tag current_user.image, style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;margin-left: 5px;" %>
           <% end %>
         </li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
         <li><%= link_to "ログイン", new_user_session_path%></li>
@@ -24,7 +24,6 @@
 
 <ul class="sidenav" id="mobile-demo">
   <% if user_signed_in? %>
-    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
     <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
     <li>
       <%= link_to user_path(current_user),class:"valign-wrapper" do %>
@@ -34,6 +33,7 @@
           <%= image_tag current_user.image, style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;margin-left: 5px;" %>
       <% end %>
     </li>
+    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
   <% else %>
     <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
     <li><%= link_to "ログイン", new_user_session_path%></li>
