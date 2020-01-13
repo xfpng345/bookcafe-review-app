@@ -14,7 +14,7 @@
         <%= f.label :sorts, "並び順"%>
         <%= f.select( :sorts, {'並び替え': 'updated_at desc', 'いいねの多い順': 'likes_count desc','いいねの少ない': 'likes_count asc','日付の新しい順': 'updated_at desc', '日付の古い順': 'updated_at asc' })%>
       </div>
-      <%= button_tag "検索", class: "btn waves-effect waves-light", type: "button", onclick: "submit();"%>
+      <%= button_tag "検索", class: "btn waves-effect waves-light search-btn", type: "button", onclick: "submit();"%>
     <% end %>
 </div>
 </div>
