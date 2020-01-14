@@ -1,4 +1,4 @@
-<nav class="search-box">
+<nav class="search-box #fffde7 yellow lighten-5">
   <div class="nav-wrapper row">
     <div class="col s12">
         <%= search_form_for @search do |f| %>
@@ -14,7 +14,7 @@
             <%= f.label :sorts, "並び順"%>
             <%= f.select( :sorts, {'並び替え': 'updated_at desc', 'いいねの多い順': 'likes_count desc','いいねの少ない': 'likes_count asc','日付の新しい順': 'updated_at desc', '日付の古い順': 'updated_at asc' })%>
           </div>
-          <%= button_tag "検索", class: "btn waves-effect waves-light search-btn", type: "button", onclick: "submit();"%>
+          <%= button_tag "検索", class: "btn waves-effect waves-light search-btn #ffd600 yellow accent-4", type: "button", onclick: "submit();"%>
         <% end %>
     </div>
   </div>
