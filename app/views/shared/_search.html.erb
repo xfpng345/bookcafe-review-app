@@ -1,16 +1,16 @@
-<nav class="search-box hide-on-med-and-down">
+<nav class="search-box">
   <div class="nav-wrapper row">
     <div class="col s12">
         <%= search_form_for @search do |f| %>
-          <div class="col l4">
+          <div class="col s12 m12 l4">
             <%= f.label :name_or_user_username_cont, "店名またはユーザー名で検索"%>
             <%= f.search_field :name_or_user_username_cont, placeholder: "店名またはユーザー名で探す "  %>
           </div>
-          <div class="col l3">
+          <div class="col m5 l3">
             <%= f.label :area_eq_any, "エリアを選択"%>
             <%= f.select :area_eq_any, ['エリアを選択','キタ(梅田)エリア', 'ミナミ(なんば)エリア', '天王寺・阿倍野・新世界エリア'], {disabled: 'エリアを選択',selected: "エリアを選択"}, { multiple: true }%>
           </div>
-          <div class="col l3">
+          <div class="col m4 l3">
             <%= f.label :sorts, "並び順"%>
             <%= f.select( :sorts, {'並び替え': 'updated_at desc', 'いいねの多い順': 'likes_count desc','いいねの少ない': 'likes_count asc','日付の新しい順': 'updated_at desc', '日付の古い順': 'updated_at asc' })%>
           </div>
