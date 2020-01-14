@@ -1,14 +1,14 @@
 <div class="slider">
+  <div class="slider-text flow-text">
+    <h2>カフェ一覧</h2>
+  </div>
   <ul class="slides">
       <% shops.each do |shop| %>
         <li>
-          カフェ一覧
-          <%= image_tag shop.image %>
-          <div class="caption center-align">
-            <%= link_to shop_path(shop), method: :get,class: "underline" do%>
-              <%= shop.name %>
-            <% end %>
-          </div>
+          <%= image_tag shop.image, class: "slides-image" %>
+          <%= link_to shop_path(shop), method: :get,class: "underline slides-text flow-text" do%>
+            <%= shop.name %>
+          <% end %>
         </li>
       <% end %>
   </ul>
