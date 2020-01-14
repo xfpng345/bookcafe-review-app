@@ -1,0 +1,20 @@
+.slider-text{
+  position: absolute;
+  z-index: 5;
+  top: 55%;
+  right: 45%;
+  color: white;
+}
+
+.slides-image{
+  position: relative;
+  opacity: 0.7;
+}
+
+.slides-text{
+  color: white;
+  opacity: 0.7;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
