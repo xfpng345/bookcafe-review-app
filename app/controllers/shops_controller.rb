@@ -5,6 +5,7 @@ class ShopsController < ApplicationController
   def index
     @search = Shop.ransack(params[:q])
     @shops = @search.result.page(params[:page]).per(9).order("updated_at DESC")
+    @random = Shop.order("RAND()").limit(5)
   end
 
   def show
