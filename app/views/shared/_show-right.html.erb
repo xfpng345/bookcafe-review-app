@@ -14,7 +14,7 @@
     <div class="row">
       <%# コメント一覧 %>
       <div class="col s12">
-        <div class="card" style="max-height: 40vw;overflow: scroll;">
+        <div class="card comment-box" style="max-height: 40vw;overflow: scroll;">
           <div id="comments_area">
               <%= render partial: 'shared/comment-index', locals: { comments: @comments } %>
           </div>
