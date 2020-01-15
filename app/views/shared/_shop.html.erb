@@ -11,7 +11,7 @@
       <p class="flow-text"><%= @shop.text %></p>
       <% if user_signed_in? %>
         <% if @shop.user_id == current_user.id %>
-          <div>
+          <div class="show-icons">
             <%= link_to edit_shop_path do %>
               <i class="material-icons underline #ffab00 amber-text text-accent-4">edit</i></a>
             <% end %>
