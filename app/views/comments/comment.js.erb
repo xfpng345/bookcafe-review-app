@@ -1,3 +1,3 @@
 $("#comments_area").html("<%= j(render 'shared/comment-index', { comments: @comment.shop.comments }) %>")
 $("#comment_text").val('')
-$('.card').animate({ scrollTop: $('.card')[1].scrollHeight});
+$('.comment-box').animate({ scrollTop: $('.comment-box')[0].scrollHeight});
