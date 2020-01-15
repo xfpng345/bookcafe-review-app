@@ -8,7 +8,7 @@
       <span class="card-title"><%= @shop.name%></span>
     </div>
     <div class="card-content">
-      <p class="flow-text show-text"><%= @shop.text %></p>
+      <p class="show-text"><%= @shop.text %></p>
       <% if user_signed_in? %>
         <% if @shop.user_id == current_user.id %>
           <div class="show-icons right">
