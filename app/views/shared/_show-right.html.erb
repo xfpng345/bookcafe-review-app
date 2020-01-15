@@ -12,22 +12,20 @@
   </div>
   <div id="test-swipe-2" class="col s12">
     <div class="row">
+      <%# コメント投稿 %>
+      <% if user_signed_in? %>
+        <div class="col s12">
+          <%= render partial: 'shared/form-comment', locals: { comment: @comment, shop: @shop } %>
+        </div>
+      <% end %>
       <%# コメント一覧 %>
       <div class="col s12">
-        <div class="card comment-box" style="max-height: 40vw;overflow: scroll;">
+        <div class="comment-box">
           <div id="comments_area">
               <%= render partial: 'shared/comment-index', locals: { comments: @comments } %>
           </div>
         </div>
       </div>
-      <%# コメント投稿 %>
-      <% if user_signed_in? %>
-        <div class="col s12">
-          <div class="card" style="max-height: 50vw;overflow: scroll;">
-            <%= render partial: 'shared/form-comment', locals: { comment: @comment, shop: @shop } %>
-          </div>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>
