@@ -1,3 +1,4 @@
+<div class="container">
 <%= render "shared/profile" %>
 
 <ul id="tabs-swipe-demo" class="tabs">
@@ -17,6 +18,7 @@
     <%= render partial: "shared/shops", object: @liked_shops, as: :shops %>
   </div>
   <%= paginate(@liked_shops)%>
+</div>
 </div>
 
 <script>
