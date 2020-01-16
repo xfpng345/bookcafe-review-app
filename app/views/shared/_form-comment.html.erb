@@ -1,7 +1,7 @@
 <%= form_for [shop, comment],remote: true do |f| %>
   <div class="row">
     <div class="input-field col s10 offset-s1">
-      <%= f.text_field :text, placeholder:"コメント",wrap: "hard" %>
+      <%= f.text_field :text, placeholder:"",wrap: "hard" %>
       <%= f.label :comment %>
       <%= f.submit "コメントする" ,class: "hide"%>
     </div>
