@@ -1,7 +1,7 @@
-<div class="container" style="margin-top: 100px;">
+<div class="container">
   <div class="row">
     <div class="col s12 m8 l6 offset-m2 offset-l3">
-      <div class="card-panel" style="padding-bottom: 100px;">
+      <div class="card-panel box">
         <h2 class="center">新規登録</h2>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
@@ -32,7 +32,7 @@
             <%= f.password_field :password, autocomplete: "new-password" %>
           </div>
 
-          <div class="field" style="margin-bottom: 30px;">
+          <div class="field">
             <%= f.label :password_confirmation %><br />
             <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
           </div>
