@@ -1,3 +1,16 @@
 .underline:hover{
   text-decoration: underline;
 }
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background-color: rgba(255,255,0,0.2) !important;
+  outline: none;
+}
+
+.tab a{
+  color: #ffd600 !important;
+}
+
+.tabs .indicator {
+  background-color: #ffd600 !important;
+} 
