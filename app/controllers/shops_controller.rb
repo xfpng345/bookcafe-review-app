@@ -28,8 +28,12 @@ class ShopsController < ApplicationController
    end
 
   def create
-    @shop = Shop.create(shop_params)
-    redirect_to root_path
+    if @shop = Shop.create(shop_params)
+      redirect_to root_path, notice: '投稿に成功しました。'
+    else
+      flash.now[:alert] = '投稿に失敗しました。'
+      render :new
+    end
   end
 
   def update
