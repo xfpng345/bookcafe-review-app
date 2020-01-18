@@ -1,11 +1,12 @@
-<div class="container">
-  <div class="row">
-    <%= render "shared/search"%>
+<%= render partial: "shared/slider", object: @random, as: :shops %>
+<%= render "shared/search"%>
+  <div class="container">
     <div class="row">
-      <div class="col s12 m9 l9">
-      <%= render partial: "shared/shops", object: @shops, as: :shops %>
+      <div class="col s12">
+        <%= render partial: "shared/shops", object: @shops, as: :shops %>
       </div>
     </div>
   </div>
+<div class="center">
+  <%= paginate(@shops)%>
 </div>
-<%= paginate(@shops)%>
