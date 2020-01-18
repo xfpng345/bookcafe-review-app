@@ -1,0 +1,22 @@
+.top{
+  background-image: url(top.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 90vh;
+  width: 100%;
+  position: relative;
+}
+
+.contents-wrapper{
+  background-color: rgba( 255, 255, 0, 0.3);
+  height: 25vh;
+  width: 100%;
+  color: white;
+  position: absolute;
+  top: 20%;
+  text-align: center;
+  text-shadow: 1px 2px 3px #808080;
+  & p{
+    font-size: 20px;
+  }
+}
