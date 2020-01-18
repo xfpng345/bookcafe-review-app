@@ -15,7 +15,7 @@
             <%= link_to edit_shop_path do %>
               <i class="material-icons underline #ffab00 amber-text text-accent-4">edit</i></a>
             <% end %>
-            <%= link_to shop_path,method: :delete do %>
+            <%= link_to shop_path, data: { confirm: "本当に削除しますか?" }, method: :delete do %>
               <i class="material-icons underline #ffab00 amber-text text-accent-4">delete</i></a>
             <% end %>
           </div>
