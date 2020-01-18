@@ -1,0 +1,7 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="hide">
+    <%= f.email_field :email, value: "test@example.com" %>
+    <%= f.password_field :password, value: "testtest"%>
+  </div>
+  <%= button_tag "簡単ログイン", class: "btn waves-effect waves-light col s12",style: "margin-top: 50px;height: 100px;font-size: 20px;", type: "button", onclick: "submit();"%>
+<% end %>
