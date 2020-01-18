@@ -29,7 +29,7 @@ class ShopsController < ApplicationController
 
   def create
     if @shop = Shop.create(shop_params)
-      redirect_to root_path, notice: '投稿に成功しました。'
+      redirect_to shops_path, notice: '投稿に成功しました。'
     else
       flash.now[:alert] = '投稿に失敗しました。'
       render :new
@@ -56,7 +56,7 @@ end
   def validate_shop
     @shop = Shop.find_by(id:params[:id])
     if @shop.user_id != current_user.id
-      redirect_to root_path
+      redirect_to shops_path
     end
   end
 end
