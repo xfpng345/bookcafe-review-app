@@ -1,7 +1,7 @@
-<div class="container" style="margin-top: 100px;">
+<div class="container">
   <div class="row">
     <div class="col s12 m8 l6 offset-m2 offset-l3">
-      <div class="card-panel">
+      <div>
         <h2 class="center">ログイン</h2>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -10,7 +10,7 @@
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
           </div>
 
-          <div class="field" style="margin: 50px 0;">
+          <div class="field">
             <%= f.label :password %><br />
             <%= f.password_field :password, autocomplete: "current-password" %>
           </div>

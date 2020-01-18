@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20200106045111) do
     t.string   "area",                                  null: false
     t.integer  "user_id"
     t.integer  "likes_count",               default: 0, null: false
-    t.index ["user_id"], name: "user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -64,5 +63,4 @@ ActiveRecord::Schema.define(version: 20200106045111) do
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "shops"
   add_foreign_key "likes", "users"
-  add_foreign_key "shops", "users", name: "shops_ibfk_1"
 end

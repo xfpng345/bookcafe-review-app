@@ -1,5 +1,5 @@
-<div class="col s12 m12 l6">
-  <div class="card" style="padding-bottom: 100px;">
+<div class="col s12 m6 l6 content">
+  <div class="card">
     <div class="card-image">
       <%= image_tag @shop.image %>
       <div class="flow-text" id="likes_buttons_<%= @shop.id %>">
@@ -7,17 +7,23 @@
       </div>
       <span class="card-title"><%= @shop.name%></span>
     </div>
-    <%= render "shared/gmap-show"%>
-    <div class="card-content">
-      <p class="flow-text"><%= @shop.text %></p>
+    <div class="card-content show-content">
+      <p class="show-text"><%= @shop.text %></p>
       <% if user_signed_in? %>
         <% if @shop.user_id == current_user.id %>
-          <a href="/shops/<%= @shop.id %>/edit" class="waves-effect waves-light btn"><i class="material-icons right">edit</i>編集</a>
-          <a href="/shops/<%= @shop.id %>" data-method="delete" class="waves-effect waves-light btn"><i class="material-icons right">delete</i>削除</a>
+          <div class="show-icons right">
+            <%= link_to edit_shop_path do %>
+              <i class="material-icons underline #ffab00 amber-text text-accent-4">edit</i></a>
+            <% end %>
+            <%= link_to shop_path,method: :delete do %>
+              <i class="material-icons underline #ffab00 amber-text text-accent-4">delete</i></a>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
-      <%= link_to user_path(@shop.user_id), class:"right valign-wrapper" do %>
-        <%= image_tag @shop.user.image,class:"right hoverable", style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;margin-right: 5px;" %>
+      <br>
+      <%= link_to user_path(@shop.user_id), class:"valign-wrapper" do %>
+        <%= image_tag @shop.user.image,class:"right hoverable image-icon"%>
         <h6 class="hoverable"><%= @shop.user.username %></h6>
       <% end %>
     </div>

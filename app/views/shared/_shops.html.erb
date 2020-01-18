@@ -1,17 +1,17 @@
 <% shops.each do |shop| %>
   <div class = "col s12 m6 l4">
-    <div class="card large hoverable">
-      <div class="card-image waves-effect waves-block waves-light ">
+    <div class="card large #fffde7 yellow lighten-5">
+      <div class="card-image">
         <%= image_tag shop.image %>
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4"><%= shop.name %><i class="material-icons right">more_vert</i></span>
         <span><%= shop.area %></span>
-        <p><%= link_to "詳細", shop_path(shop), method: :get %></p>
+        <p><%= link_to "詳細", shop_path(shop), method: :get,class: "underline" %></p>
         <span><%= shop.updated_at.strftime("%Y/%m/%d") %></span>
-        <%= link_to user_path(shop.user_id), class:"right valign-wrapper" do %>
-          <%= image_tag shop.user.image,class:"right hoverable", style: "width: 50px;height: 50px;border-radius: 50%;object-fit: cover;margin-right: 5px;" %>
-          <h6 class="hoverable"><%= shop.user.username %></h6>
+        <%= link_to user_path(shop.user_id), class:"valign-wrapper card-link" do %>
+          <%= image_tag shop.user.image,class:"right hoverable image-icon" %>
+          <h6 class="underline"><%= shop.user.username %></h6>
         <% end %>
         <div class="flow-text" id="likes_buttons_<%= shop.id %>">
           <%= render partial: 'shared/like', locals: { shop: shop, likes: @likes} %>
