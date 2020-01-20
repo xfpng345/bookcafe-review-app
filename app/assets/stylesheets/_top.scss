@@ -7,16 +7,29 @@
   position: relative;
 }
 
-.contents-wrapper{
-  background-color: rgba( 255, 255, 0, 0.3);
-  height: 25vh;
-  width: 100%;
-  color: white;
-  position: absolute;
-  top: 20%;
-  text-align: center;
+.contents{
   text-shadow: 1px 2px 3px #808080;
+  &_title{
+    background-color: rgba( 255, 255, 0, 0.3);
+    color: white;
+    position: absolute;
+    width: 100%;
+    top: 30%;
   & p{
     font-size: 20px;
+  }
+}
+&_link{
+  width: 100%;
+  position: absolute;
+  top: 75%;
+    & a{
+      text-decoration: none;
+      color: white;
+      background-color: rgba( 255, 255, 0, 0.8);
+      font-size: 30px;
+      padding: 20px;
+      border-radius: 10px;
+    }
   }
 }
