@@ -19,5 +19,17 @@ describe User do
       expect(user.errors[:email]).to include("が入力されていません。")
     end
 
+    it "is invalid without a password" do
+      user = build(:user, password: nil)
+      user.valid?
+      expect(user.errors[:password]).to include("が入力されていません。")
+    end
+
+    it "is invalid without a password_confirmation although with a password" do
+      user = build(:user, password_confirmation: "")
+      user.valid?
+      expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
+    end
+
   end
 end
