@@ -24,13 +24,12 @@ class ShopsController < ApplicationController
   end
 
   def new
-    @shop = Shop.new
+    @shop = current_user.shops.new
    end
 
   def create
-    @shop = Shop.new
-
-    if @shop.save(shop_params)
+    @shop = current_user.shops.new(shop_params)
+    if @shop.save
       redirect_to shops_path, notice: '投稿に成功しました。'
     else
       flash.now[:alert] = '店名を入力してください。'
