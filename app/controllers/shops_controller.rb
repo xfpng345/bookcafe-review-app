@@ -23,6 +23,16 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
   end
 
+  def update
+    @shop = Shop.find(params[:id])
+    if @shop.update_attributes(shop_params)
+      redirect_to @shop, notice: '投稿が編集されました。'
+    else
+      flash.now[:alert] = '編集に失敗しました。'
+      render :edit
+    end
+  end
+
   def new
     @shop = current_user.shops.new
    end
@@ -35,19 +45,12 @@ class ShopsController < ApplicationController
       flash.now[:alert] = '店名を入力してください。'
       render :new
     end
-  end
-
-  def update
+  end  
+  
+  def destroy
     @shop = Shop.find(params[:id])
-    @shop.update(shop_params)
-    redirect_to shop_path
+    @shop.destroy
   end
-  
-  
-def destroy
-  @shop = Shop.find(params[:id])
-  @shop.destroy
-end
 
   private
   def shop_params
