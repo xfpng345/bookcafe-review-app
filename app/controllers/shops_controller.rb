@@ -34,11 +34,11 @@ class ShopsController < ApplicationController
   end
 
   def new
-    @shop = current_user.shops.new
+    @shop = Shop.new
    end
 
   def create
-    @shop = current_user.shops.new(shop_params)
+    @shop = Shop.new(shop_params)
     if @shop.save
       redirect_to shops_path, notice: '投稿に成功しました。'
     else
