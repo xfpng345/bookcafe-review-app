@@ -13,5 +13,6 @@ class Shop < ApplicationRecord
   end
 
   validates :name, presence: true
+  validates :text, presence: true
   
 end
