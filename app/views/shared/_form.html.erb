@@ -1,5 +1,8 @@
 <div class="col s12 m12 l7">
   <%= form_for(@shop) do |f| %>
+    <% @shop.errors.full_messages.each do |msg| %>
+      <li class="red-text"><%= msg %></li>
+    <% end %>
     <%# ショップ名 %>
     <div class="row">
       <div class="input-field col s12">
