@@ -33,7 +33,7 @@ class ShopsController < ApplicationController
     if @shop.save(shop_params)
       redirect_to shops_path, notice: '投稿に成功しました。'
     else
-      flash.now[:alert] = '投稿に失敗しました。'
+      flash.now[:alert] = '店名を入力してください。'
       render :new
     end
   end
