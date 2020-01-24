@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :validate_shop,only: [:edit, :update, :destroy]
+  # before_action :authenticate_user!, except: [:index, :show]
+  # before_action :validate_shop,only: [:edit, :update, :destroy]
 
   def index
     @search = Shop.ransack(params[:q])
