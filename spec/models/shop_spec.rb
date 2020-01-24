@@ -6,7 +6,6 @@ RSpec.describe Shop, type: :model do
       it 'is valid with content' do
         expect(build(:shop, image: nil)).to be_valid
       end
-      
     end
   end
 end
