@@ -51,6 +51,20 @@ describe ShopsController do
       end
     end
 
+    describe 'GET #show' do
+      it "assigns the requested shop to @shop" do
+        shop = create(:shop)
+        get :show, params: { id: shop }
+        expect(assigns(:shop)).to eq shop
+      end
+
+      it "renders the :show template" do
+        shop = create(:shop)
+        get :show, params: { id: shop }
+        expect(response).to render_template :show
+      end
+    end
+
   end
 
 end
