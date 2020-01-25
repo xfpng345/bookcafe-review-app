@@ -3,7 +3,6 @@ require 'rails_helper'
 describe ShopsController do
   let(:user) { create(:user) }
 
-
   context 'log in' do
     before do
       login user
