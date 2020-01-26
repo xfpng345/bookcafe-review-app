@@ -15,6 +15,46 @@ describe ShopsController do
       end
     end
 
+    describe '#create' do
+      let(:params) { { user_id: user.id, shop: attributes_for(:shop) } }
+
+      context 'can save' do
+        subject {
+           post :create,
+           params: params
+         }
+      
+        it 'count up shop' do
+           expect{ subject }.to change(Shop, :count).by(1)
+        end
+
+        it 'redirects to shops_path' do
+          subject
+          expect(response).to redirect_to(shops_path)
+        end
+
+        context 'can not save' do
+          let(:invalid_params) { {user_id: user.id, shop: attributes_for(:shop, name: nil, text:nil) } }
+        
+           subject {
+             post :create,
+             params: invalid_params
+           }
+        
+          it 'does not count up' do
+             expect{ subject }.not_to change(Shop, :count)
+          end
+        end
+
+        it 'renders new' do
+          subject
+          get :new
+          expect(response).to render_template :new
+        end
+        
+      end
+    end
+
     context ' shop.user_id == current_user.id' do
 
       describe 'GET #edit' do
