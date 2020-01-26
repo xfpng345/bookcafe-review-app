@@ -79,6 +79,21 @@ describe ShopsController do
         end
       end
 
+      describe 'PATCH #update' do
+
+        context 'can update' do
+          it "locates the requersted @shop" do
+            shop = create(:shop)
+            patch :update, params: { id: shop, shop: attributes_for(:shop) }
+            expect(assigns(:shop)).to eq shop
+          end
+        end
+        
+        context 'can not update' do
+          
+        end
+      end
+
     end
 
   end
