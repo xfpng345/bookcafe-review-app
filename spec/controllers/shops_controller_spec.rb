@@ -140,7 +140,6 @@ describe ShopsController do
         shops = create_list(:shop, 3) 
         get :index
         expect(assigns(:shops)).to match(shops)
-        # expect(assigns(:shops)).to match(shops.sort{ |a, b| b.created_at <=> a.created_at } )
       end
 
       it "renders the :index template" do
