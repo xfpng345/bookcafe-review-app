@@ -90,7 +90,7 @@ describe ShopsController do
 
           it "changes @shop's attributes" do
             shop = create(:shop, user_id: user.id)
-            patch :update, params: { id: shop.id, shop: attributes_for(:shop, name: 'update name', text: 'update text') }, session: {}
+            patch :update, params: { id: shop.id, shop: attributes_for(:shop, name: 'update name', text: 'update text') }
             shop.reload
             expect(shop.name).to eq("update name")
             expect(shop.text).to eq("update text")
