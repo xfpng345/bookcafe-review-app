@@ -96,6 +96,12 @@ describe ShopsController do
             expect(shop.text).to eq("update text")
           end
 
+          it "redirects to shops_path" do
+            shop = create(:shop)
+            patch :update, params: { id: shop, shop: attributes_for(:shop) }
+            expect(response).to redirect_to shops_path
+          end
+
         end
         
         context 'can not update' do
