@@ -105,6 +105,11 @@ describe ShopsController do
         end
         
         context 'can not update' do
+          it "redirects to edit_shop_path" do
+            shop = create(:shop)
+            patch :update, params: { id: shop, shop: attributes_for(:shop, name: nil, text:nil) }
+            expect(response).to redirect_to shops_path
+          end
           
         end
       end
