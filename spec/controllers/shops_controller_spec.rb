@@ -8,6 +8,14 @@ describe ShopsController do
       login user
     end
 
+    describe 'GET #show' do
+      it "assigns @comment" do
+        shop = create(:shop)
+        get :show, params: { id: shop }
+        expect(assigns(:comment)).to be_a_new(Comment)
+      end
+    end
+
     describe 'GET #new' do
       it "renders the :new template" do
         get :new
