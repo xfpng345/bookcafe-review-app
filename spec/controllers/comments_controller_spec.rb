@@ -14,7 +14,7 @@ describe CommentsController do
          post :create,
          params: params
        }
-      it 'count up shop' do
+      it 'count up comment' do
         expect{ subject }.to change(Comment, :count).by(1)
       end
     end
