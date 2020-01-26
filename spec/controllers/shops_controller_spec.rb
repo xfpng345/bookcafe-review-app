@@ -106,9 +106,8 @@ describe ShopsController do
     end
 
     describe '#create' do
-      let(:params) { { user_id: user.id, shop: attributes_for(:shop) } }
       it 'redirects to new_user_session_path' do
-        post :create, params: params
+        post :create
         expect(response).to redirect_to(new_user_session_path)
       end
     end
