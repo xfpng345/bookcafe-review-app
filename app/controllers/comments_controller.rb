@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   
   def create
     @shop = Shop.find(params[:shop_id])
-    @comment = @shop.comments.build(comment_params)
+    @comment = @shop.comments.new(comment_params)
     @comment.user_id = current_user.id
     render :comment if @comment.save
   end
