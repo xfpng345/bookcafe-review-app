@@ -121,6 +121,12 @@ describe ShopsController do
             delete :destroy, params: { id: shop}
           }.to change(Shop,:count).by(-1)
         end
+
+        it 'renders the :destroy template' do
+          shop = create(:shop, user_id: user.id)
+          delete :destroy, params: { id: shop}
+          expect(response).to render_template :destroy
+        end
       end
 
     end
