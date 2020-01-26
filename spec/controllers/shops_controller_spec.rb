@@ -87,6 +87,15 @@ describe ShopsController do
             patch :update, params: { id: shop, shop: attributes_for(:shop) }
             expect(assigns(:shop)).to eq shop
           end
+
+          it "changes @shop's attributes" do
+            shop = create(:shop, user_id: user.id)
+            patch :update, params: { id: shop.id, shop: attributes_for(:shop, name: 'update name', text: 'update text') }, session: {}
+            shop.reload
+            expect(shop.name).to eq("update name")
+            expect(shop.text).to eq("update text")
+          end
+
         end
         
         context 'can not update' do
