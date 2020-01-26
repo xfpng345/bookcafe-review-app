@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :validate_shop,only: [:edit, :update, :destroy]
+  before_action :set_shop, only: [:show, :edit, :update, :destroy]
 
   def index
     @search = Shop.ransack(params[:q])
@@ -9,7 +10,6 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop = Shop.find(params[:id])
     if user_signed_in?
       @comment = Comment.new
     end
@@ -22,11 +22,9 @@ class ShopsController < ApplicationController
   end
 
   def edit
-    @shop = Shop.find(params[:id])
   end
 
   def update
-    @shop = Shop.find(params[:id])
     if @shop.update_attributes(shop_params)
       redirect_to @shop, notice: '投稿が編集されました。'
     else
@@ -50,7 +48,6 @@ class ShopsController < ApplicationController
   end  
   
   def destroy
-    @shop = Shop.find(params[:id])
     @shop.destroy
   end
 
@@ -64,5 +61,9 @@ class ShopsController < ApplicationController
     if @shop.user_id != current_user.id
       redirect_to shops_path
     end
+  end
+
+  def set_shop
+    @shop = Shop.find(params[:id])
   end
 end
