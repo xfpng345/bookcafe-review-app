@@ -114,6 +114,15 @@ describe ShopsController do
         end
       end
 
+      describe 'DELETE #destroy' do
+        it "deletes the shop" do
+          shop = create(:shop, user_id: user.id)
+          expect{
+            delete :destroy, params: { id: shop}
+          }.to change(Shop,:count).by(-1)
+        end
+      end
+
     end
 
   end
