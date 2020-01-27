@@ -18,7 +18,7 @@ describe UsersController do
     it "populates an array of shops ordered by created_at DESC" do
       shops = create_list(:shop, 3, user_id: user.id) 
       get :show, params: { id: user.id }
-      expect(assigns(:shops)).to match(shops.sort{ |a, b| b.updated_at <=> a.updated_at } )
+      expect(assigns(:shops)).to match(shops.sort{ |a, b| b.created_at <=> a.created_at } )
     end
 
   end
