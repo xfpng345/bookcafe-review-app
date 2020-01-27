@@ -20,5 +20,17 @@ describe CommentsController do
     end
   end
 
+  describe 'DELETE #destroy' do
+    context 'log in' do
+      before do
+        login user
+      end
+      it "deletes the comment" do
+        comment = create(:comment, shop_id: shop.id, user_id: user.id)
+        expect{
+          delete :destroy, params: { id: comment.id, shop_id: shop.id, user_id: user.id }
+        }.to change(Comment,:count).by(-1)
+      end
+    end
   end
 end
