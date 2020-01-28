@@ -10,5 +10,6 @@ feature 'sign_in', type: :feature do
     fill_in 'user_password', with: user.password
     click_on 'ログインする'
     expect(current_path).to eq root_path
+    expect(page).to have_content user.username
   end
 end
