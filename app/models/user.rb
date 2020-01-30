@@ -10,4 +10,7 @@ class User < ApplicationRecord
   has_many :like_shops, through: :likes, source: :shop
 
   mount_uploader :image, ImageUploader
+
+  validates :username, presence: true, length: { maximum: 10 }
+  validates :email, presence: true
 end

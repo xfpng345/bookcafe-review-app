@@ -1,13 +1,15 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+  
   def create
     @shop = Shop.find(params[:shop_id])
-    @comment = @shop.comments.build(comment_params)
+    @comment = @shop.comments.new(comment_params)
     @comment.user_id = current_user.id
     render :comment if @comment.save
   end
 
   def destroy
-    @comment = Comment.find_by(id: params[:id],shop_id: params[:shop_id])
+    @comment = Comment.find( params[:id])
     if @comment.user_id == current_user.id
       render :comment if @comment.destroy
     end
