@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe UsersController do
@@ -9,17 +11,16 @@ describe UsersController do
       expect(assigns(:user)).to eq user
     end
 
-    it "renders the :show template" do
+    it 'renders the :show template' do
       user = create(:user)
       get :show, params: { id: user }
       expect(response).to render_template :show
     end
 
-    it "populates an array of shops ordered by created_at DESC" do
-      shops = create_list(:shop, 3, user_id: user.id) 
+    it 'populates an array of shops ordered by created_at DESC' do
+      shops = create_list(:shop, 3, user_id: user.id)
       get :show, params: { id: user.id }
-      expect(assigns(:shops)).to match(shops.sort{ |a, b| b.created_at <=> a.created_at } )
+      expect(assigns(:shops)).to match(shops.sort { |a, b| b.created_at <=> a.created_at })
     end
-
   end
 end

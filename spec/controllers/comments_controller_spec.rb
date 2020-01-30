@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe CommentsController do
@@ -10,12 +12,12 @@ describe CommentsController do
       before do
         login user
       end
-      subject {
-         post :create,
-         params: params
-       }
+      subject do
+        post :create,
+             params: params
+      end
       it 'count up comment' do
-        expect{ subject }.to change(Comment, :count).by(1)
+        expect { subject }.to change(Comment, :count).by(1)
       end
     end
   end
@@ -25,11 +27,11 @@ describe CommentsController do
       before do
         login user
       end
-      it "deletes the comment" do
+      it 'deletes the comment' do
         comment = create(:comment, shop_id: shop.id, user_id: user.id)
-        expect{
+        expect  do
           delete :destroy, params: { id: comment.id, shop_id: shop.id, user_id: user.id }
-        }.to change(Comment,:count).by(-1)
+        end.to change(Comment, :count).by(-1)
       end
     end
   end

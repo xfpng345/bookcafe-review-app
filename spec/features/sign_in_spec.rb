@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'sign_in', type: :feature do
   let(:user) { create(:user) }
 
-  #テストの際はviewで簡単ログインボタンの_testuserファイルをコメントアウトする。
+  # テストの際はviewで簡単ログインボタンの_testuserファイルをコメントアウトする。
   scenario 'sign in' do
     visit new_user_session_path
-    
+
     click_on 'ログインする'
     expect(page).to have_content 'メールアドレスまたはパスワードが違います。'
 

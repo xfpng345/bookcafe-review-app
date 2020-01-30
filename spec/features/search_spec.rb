@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'search', type: :feature do
@@ -16,7 +18,7 @@ feature 'search', type: :feature do
 
     visit shops_path
     expect(page).to have_content 'カフェ一覧'
-    fill_in "q_name_or_user_username_cont", with: 'aaa'
+    fill_in 'q_name_or_user_username_cont', with: 'aaa'
     find('input[name="commit"]').click
     # expect(page).to have_no_content 'bbb'
   end
