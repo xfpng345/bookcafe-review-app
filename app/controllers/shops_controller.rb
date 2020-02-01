@@ -34,7 +34,7 @@ class ShopsController < ApplicationController
 
   def new
     @shop = Shop.new
-   end
+  end
 
   def create
     @shop = Shop.new(shop_params)
