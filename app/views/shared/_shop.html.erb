@@ -9,17 +9,15 @@
     </div>
     <div class="card-content show-content">
       <p class="show-text"><%= @shop.text %></p>
-      <% if user_signed_in? %>
-        <% if @shop.user_id == current_user.id %>
-          <div class="show-icons right">
-            <%= link_to edit_shop_path do %>
-              <i class="material-icons underline #ffab00 amber-text text-accent-4">edit</i></a>
-            <% end %>
-            <%= link_to shop_path, data: { confirm: "本当に削除しますか?" }, method: :delete do %>
-              <i class="material-icons underline #ffab00 amber-text text-accent-4">delete</i></a>
-            <% end %>
-          </div>
-        <% end %>
+      <% if @shop.user == current_user %>
+        <div class="show-icons right">
+          <%= link_to edit_shop_path do %>
+            <i class="material-icons underline #ffab00 amber-text text-accent-4">edit</i></a>
+          <% end %>
+          <%= link_to shop_path, data: { confirm: "本当に削除しますか?" }, method: :delete do %>
+            <i class="material-icons underline #ffab00 amber-text text-accent-4">delete</i></a>
+          <% end %>
+        </div>
       <% end %>
       <br>
       <%= link_to user_path(@shop.user_id), class:"valign-wrapper" do %>
