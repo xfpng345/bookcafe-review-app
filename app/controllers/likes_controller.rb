@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LikesController < ApplicationController
   before_action :set_shop
 
@@ -19,5 +21,4 @@ class LikesController < ApplicationController
   def set_shop
     @shop = Shop.find(params[:shop_id])
   end
-  
 end

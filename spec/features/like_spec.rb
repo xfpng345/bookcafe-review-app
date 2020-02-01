@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'like', type: :feature do
@@ -9,13 +11,13 @@ feature 'like', type: :feature do
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
     click_on 'ログインする'
-    
+
     visit new_shop_path
     fill_in 'shop_name', with: shop.name
     fill_in 'shop_text', with: shop.text
-    expect {
-    click_on '投稿'
-    }.to change(Shop, :count).by(1)
+    expect do
+      click_on '投稿'
+    end.to change(Shop, :count).by(1)
     expect(current_path).to eq shops_path
 
     visit shops_path
