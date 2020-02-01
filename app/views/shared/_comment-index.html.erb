@@ -4,7 +4,7 @@
       <div class="col s2 m2 l2 left">
         <%= link_to user_path(comment.user_id) do %>
           <%= image_tag comment.user.image,class:"hoverable image-icon" %><br>
-          <p class="l6 left-align hoverable">
+          <p class="l6 left-align underline">
             <%= comment.user.username %>
           </p>
         <% end %>
