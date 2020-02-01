@@ -14,14 +14,14 @@
     <div class="row">
       <div class="input-field col s12">
         <%= f.text_area :text, placeholder: "紹介文",class: "materialize-textarea"%>
-        <%= f.label :description %>
+        <%= f.label :text %>
       </div>
     </div>
     <%# エリア %>
     <div class="row">
     <div class="input-field col s12">
       <%= f.select :area, ['キタ(梅田)エリア', 'ミナミ(なんば)エリア', '天王寺・阿倍野・新世界エリア','その他'], {include_blank: 'エリアを選択してください'}%>
-      <label>choose area</label>
+      <%= f.label :area %>
     </div>
     </div>
     <script>
@@ -33,7 +33,7 @@
     <div class="row">
       <div class="input-field col s12">
         <%= f.text_field :address, placeholder: "住所" %>
-        <%= f.label :adress %>
+        <%= f.label :address %>
       </div>
     </div>
     <%# 画像 %>

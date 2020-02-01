@@ -213,3 +213,5 @@ ja:
         name: "店名"
         text: "紹介文"
         image: "画像"
+        area: "エリア"
+        address: "住所"
