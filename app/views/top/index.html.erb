@@ -4,8 +4,10 @@
       <h2>The BookCafe DB</h2>
       <P>お気に入りのブックカフェを<br>位置情報と一緒に投稿できるサイトです。</P>
     </div>
-    <div class="contents_link">
-      <%= link_to "ログインしてはじめる", new_user_session_path, class: "waves-effect waves-light hoverable"%>
-    </div>
+    <% unless user_signed_in? %>
+      <div class="contents_link">
+        <%= link_to "ログインしてはじめる", new_user_session_path, class: "waves-effect waves-light hoverable"%>
+      </div>
+    <% end %>
   </div>
 </div>
