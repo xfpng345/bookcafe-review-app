@@ -10,7 +10,7 @@ set :deploy_to, '/var/www/projects/bookcafe-review-app'
 
 set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
 
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 set :keep_releases, 5
 
