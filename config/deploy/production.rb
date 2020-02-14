@@ -1,0 +1,1 @@
+server '54.248.37.95', user: 'test_user', roles: %w{app db web}
