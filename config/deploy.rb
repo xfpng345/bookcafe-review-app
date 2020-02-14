@@ -1,28 +1,22 @@
 lock '3.11.2'
 
-set :application, 'bookcafe-review-app'
+set :application, 'book-cafe-review-app'
 
-set :repo_url,  'git@github.com:xfpng345/bookcafe-review-app.git'
+set :repo_url, 'git@github.com:xfpng345/bookcafe-review-app.git'
 
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
-
-# set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
+set :branch, 'master'
 
 set :deploy_to, '/var/www/projects/bookcafe-review-app'
 
-set :rbenv_type, :user
+set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
+
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+
+set :keep_releases, 5
 
 set :rbenv_ruby, '2.5.1'
 
 set :log_level, :debug
-
-
-# set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
-
-# set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
-
-
-set :keep_releases, 5
 
 namespace :deploy do
   desc 'Restart application'
