@@ -16,9 +16,6 @@ set :rbenv_ruby, '2.5.1'
 
 set :log_level, :debug
 
-set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/first_aws_rsa'],
-                  forward_agent: true
 
 # set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 
