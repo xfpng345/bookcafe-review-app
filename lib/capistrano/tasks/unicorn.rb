@@ -12,20 +12,20 @@ namespace :unicorn do
     end
   end
 
-#unicornを停止させるメソッド
-  def stop_unicorn
-    execute :kill, "-s QUIT $(< #{fetch(:unicorn_pid)})"
-  end
+# #unicornを停止させるメソッド
+#   def stop_unicorn
+#     execute :kill, "-s QUIT $(< #{fetch(:unicorn_pid)})"
+#   end
 
-#unicornを再起動するメソッド
-  def reload_unicorn
-    execute :kill, "-s USR2 $(< #{fetch(:unicorn_pid)})"
-  end
+# #unicornを再起動するメソッド
+#   def reload_unicorn
+#     execute :kill, "-s USR2 $(< #{fetch(:unicorn_pid)})"
+#   end
 
-#unicronを強制終了するメソッド
-  def force_stop_unicorn
-    execute :kill, "$(< #{fetch(:unicorn_pid)})"
-  end
+# #unicronを強制終了するメソッド
+#   def force_stop_unicorn
+#     execute :kill, "$(< #{fetch(:unicorn_pid)})"
+#   end
 
 #unicornをスタートさせるtask
   desc "Start unicorn server"
