@@ -43,17 +43,17 @@ namespace :unicorn do
     end
   end
 
-# #既にunicornが起動している場合再起動を、まだの場合起動を行うtask
-#   desc "Restart unicorn server gracefully"
-#   task restart: :environment do
-#     on roles(:app) do
-#       if test("[ -f #{fetch(:unicorn_pid)} ]")
-#         reload_unicorn
-#       else
-#         start_unicorn
-#       end
-#     end
-#   end
+#既にunicornが起動している場合再起動を、まだの場合起動を行うtask
+  desc "Restart unicorn server gracefully"
+  task restart: :environment do
+    on roles(:app) do
+      if test("[ -f #{fetch(:unicorn_pid)} ]")
+        reload_unicorn
+      else
+        start_unicorn
+      end
+    end
+  end
 
 #unicornを強制終了させるtask 
   desc "Stop unicorn server immediately"
