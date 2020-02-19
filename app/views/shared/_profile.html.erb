@@ -10,9 +10,9 @@
           <% if user_signed_in? %>
             <% if @user.id == current_user.id %>
               <span class="black-text">
-                <%# <% unless @user.email == "test@example.com"%> %>
+                <% unless @user.email == "test@example.com"%>
                   <%= link_to "プロフィールを編集する", edit_user_registration_path(@user), method: :get %>
-                <%# <% end %> %>
+                <% end %>
               </span>
             <% end %>
           <% end %>
