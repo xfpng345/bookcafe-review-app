@@ -57,7 +57,6 @@ jobs: # a collection of steps
 
       - run:
           name: Database setup
-          key: {{ .Environment.<config.secret_key> }}: ENV["DEVISE_SECRET_KEY"]
           command: bin/rails db:schema:load --trace
 
       - run:
