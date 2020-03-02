@@ -41,12 +41,6 @@ jobs: # a collection of steps
           paths:
             - vendor/bundle
 
-      # Only necessary if app uses webpacker or yarn in some other way
-      - restore_cache:
-          keys:
-            - rails-demo-yarn-{{ checksum "yarn.lock" }}
-            - rails-demo-yarn-
-
       - run:
           name: Yarn Install
           command: yarn install --cache-folder ~/.cache/yarn
@@ -63,6 +57,7 @@ jobs: # a collection of steps
 
       - run:
           name: Database setup
+          key: {{ .Environment.<config.secret_key> }}: ENV["DEVISE_SECRET_KEY"]
           command: bin/rails db:schema:load --trace
 
       - run:
