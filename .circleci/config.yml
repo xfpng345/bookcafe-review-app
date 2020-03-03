@@ -12,6 +12,7 @@ jobs: # a collection of steps
       - image: circleci/mysql:5.6
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ROOT_PASSWORD: ''
           MYSQL_DATABASE: circle_test
           MYSQL_HOST: 127.0.0.1
           MYSQL_ROOT_HOST: '%'
@@ -54,9 +55,6 @@ jobs: # a collection of steps
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
-
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
 
       - run:
           name: Run rspec in parallel
