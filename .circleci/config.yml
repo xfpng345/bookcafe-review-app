@@ -55,9 +55,8 @@ jobs: # a collection of steps
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
 
-      - run:
-          name: Database setup
-          command: bin/rails db:schema:load --trace
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
 
       - run:
           name: Run rspec in parallel
