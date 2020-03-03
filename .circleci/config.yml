@@ -12,7 +12,6 @@ jobs: # a collection of steps
       - image: circleci/mysql:5.6
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_PASSWORD: ''
           MYSQL_DATABASE: circle_test
           MYSQL_HOST: 127.0.0.1
           MYSQL_ROOT_HOST: '%'
