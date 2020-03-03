@@ -57,13 +57,8 @@ jobs: # a collection of steps
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
 
       - run:
-          name: Run rspec in parallel
-          command: |
-            bundle exec rspec --profile 10 \
-                              --format RspecJunitFormatter \
-                              --out test_results/rspec.xml \
-                              --format progress \
-                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+          name: Run rspec
+          command: bundle exec rspec
 
       # Save test results for timing analysis
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
