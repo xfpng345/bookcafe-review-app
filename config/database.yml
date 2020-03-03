@@ -20,7 +20,7 @@ default: &default
 development:
   <<: *default
   database: bookcafe-review-app_development
-  host: <%= ENV['MYSQL_HOST'] %>
+  host: db
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,7 +28,7 @@ development:
 test:
   <<: *default
   database: bookcafe-review-app_test
-
+  host: <%= ENV['MYSQL_HOST'] %>
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
