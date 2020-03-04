@@ -32,7 +32,7 @@ test:
   username: 'root'
   port: 3306
   host: '127.0.0.1'
-  database: ci_test
+  database: bookcafe-review-app_test
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
