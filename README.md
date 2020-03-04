@@ -17,6 +17,9 @@ https://bookcafedb.com/
 * RSpec
 * SASS, Materializse, JQuery
 
+## AWS構成図
+![Untitled Diagram](https://user-images.githubusercontent.com/54070896/75841028-13a09480-5e10-11ea-89cc-70cee38b4abc.png)
+
 ## 機能一覧
 * ユーザー登録・ログイン機能（deviseを使用）
 * 投稿機能（画像のアップロードにCarrierWaveを使用）
