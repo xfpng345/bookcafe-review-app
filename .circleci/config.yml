@@ -17,6 +17,7 @@ jobs: # a collection of steps
           MYSQL_HOST: 127.0.0.1
           MYSQL_ROOT_HOST: '%'
           MYSQL_USER: root
+          command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin --innodb-large-prefix=true --innodb-file-format=Barracuda
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
 
