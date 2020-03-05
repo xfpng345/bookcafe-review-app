@@ -258,8 +258,6 @@ GEM
       rspec-mocks (~> 3.9.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.2)
-    rspec_junit_formatter (0.4.1)
-      rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (0.80.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -354,7 +352,6 @@ DEPENDENCIES
   rails-controller-testing
   ransack
   rspec-rails
-  rspec_junit_formatter
   rubocop
   sass-rails (~> 5.0)
   spring
