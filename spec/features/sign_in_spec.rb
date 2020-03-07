@@ -12,10 +12,10 @@ feature 'sign_in', type: :feature do
     click_on 'ログインする'
     expect(page).to have_content 'メールアドレスまたはパスワードが違います。'
 
-    fill_in 'user_email', with: user.email
-    fill_in 'user_password', with: user.password
-    click_on 'ログインする'
-    expect(current_path).to eq root_path
-    expect(page).to have_content user.username
+    # fill_in 'user_email', with: user.email
+    # fill_in 'user_password', with: user.password
+    # click_on 'ログインする'
+    # expect(current_path).to eq root_path
+    # expect(page).to have_content user.username
   end
 end
