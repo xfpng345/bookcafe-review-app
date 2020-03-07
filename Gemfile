@@ -34,6 +34,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rubocop', require: false
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
