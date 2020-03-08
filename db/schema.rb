@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20200106045111) do
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
     t.integer  "user_id"
     t.integer  "shop_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20200106045111) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
-  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "shop_id"
     t.datetime "created_at", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20200106045111) do
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
-  create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                  null: false
     t.string   "image"
     t.text     "text",        limit: 65535
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20200106045111) do
     t.integer  "likes_count",               default: 0, null: false
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
