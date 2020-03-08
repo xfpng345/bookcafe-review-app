@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :comment do
-    text { 'hello' }
+    text { Faker::Lorem.sentence }
     user
     shop
   end
