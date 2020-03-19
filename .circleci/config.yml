@@ -77,6 +77,6 @@ jobs: # a collection of steps
           fingerprints:
             - "41:ce:db:36:2f:19:67:ff:6f:df:ee:ea:3d:5d:a3:f3"
 
-      - deploy:
-          name: Capistrano deploy
-          command: bundle exec cap production deploy
+      # - deploy:
+      #     name: Capistrano deploy
+      #     command: bundle exec cap production deploy
