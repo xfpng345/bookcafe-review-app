@@ -21,7 +21,7 @@ https://bookcafedb.com/
 * CircleCi/CI
 
 ## AWS構成図
-![Untitled Diagram](https://user-images.githubusercontent.com/54070896/75841028-13a09480-5e10-11ea-89cc-70cee38b4abc.png)
+![Untitled Diagram (2)](https://user-images.githubusercontent.com/54070896/77049390-5a46df00-6a0b-11ea-9533-b909b780166c.png)
 
 ## 機能一覧
 * ユーザー登録・ログイン機能（deviseを使用）
