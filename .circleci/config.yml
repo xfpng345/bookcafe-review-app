@@ -79,4 +79,8 @@ jobs: # a collection of steps
 
       - deploy:
           name: Capistrano deploy
-          command: bundle exec cap production deploy --trace
+          command: |
+            if [ "${CIRCLE_BRANCH}" != "master" ]; then
+              exit 0
+            fi
+            bundle exec cap production deploy
