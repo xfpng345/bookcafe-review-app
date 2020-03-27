@@ -24,7 +24,7 @@ https://bookcafedb.com/
 * Capistrano
 * RSpec
 * SASS, Materializse, JQuery
-* CircleCi/CI
+* CircleCi CI/CD
 
 ## AWS構成図
 ![Untitled Diagram (2)](https://user-images.githubusercontent.com/54070896/77049390-5a46df00-6a0b-11ea-9533-b909b780166c.png)
