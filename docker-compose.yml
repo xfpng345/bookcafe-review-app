@@ -2,6 +2,7 @@ version: '3'
 services:
   db:
     image: mysql:5.7
+    command: mysqld --character-set-server=utf8 --explicit_defaults_for_timestamp=true
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: bookcafe-review-app_development
