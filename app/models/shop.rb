@@ -16,4 +16,7 @@ class Shop < ApplicationRecord
 
   validates :name, presence: true
   validates :text, presence: true
+
+  include JpPrefecture
+  jp_prefecture :prefecture_code
 end
