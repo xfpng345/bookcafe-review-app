@@ -20,7 +20,7 @@
     <%# 都道府県 %>
     <div class="row">
       <div class="input-field col s12">
-        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, include_blank: '都道府県を選択してください' %>
+        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, include_blank: '都道府県を選択してください' %>
         <%= f.label :prefecture_code %>
       </div>
     </div>
