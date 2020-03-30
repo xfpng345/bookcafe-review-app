@@ -2,15 +2,19 @@
   <div class="nav-wrapper row">
     <div class="col s12">
         <%= search_form_for @search do |f| %>
-          <div class="col s12 m12 l4">
+          <div class="col s12 m12 l3">
             <%= f.label :name_or_user_username_cont, "店名またはユーザー名で検索"%>
             <%= f.search_field :name_or_user_username_cont, placeholder: "店名またはユーザー名で探す "  %>
           </div>
           <div class="col m5 l3">
+            <%= f.label :prefecture_code_eq_any, "都道府県を選択" %>
+            <%= f.collection_select :prefecture_code_eq_any, JpPrefecture::Prefecture.all, :code, :name, include_blank: '都道府県を選択してください' %>
+          </div>
+          <div class="col m5 l2">
             <%= f.label :area_eq_any, "エリアを選択"%>
             <%= f.select :area_eq_any, ['エリアを選択','キタ(梅田)エリア', 'ミナミ(なんば)エリア', '天王寺・阿倍野・新世界エリア','その他'], {disabled: 'エリアを選択',selected: "エリアを選択"}, { multiple: true }%>
           </div>
-          <div class="col m4 l3">
+          <div class="col m4 l2">
             <%= f.label :sorts, "並び順"%>
             <%= f.select( :sorts, {'並び替え': 'updated_at desc', 'いいねの多い順': 'likes_count desc','いいねの少ない': 'likes_count asc','日付の新しい順': 'updated_at desc', '日付の古い順': 'updated_at asc' })%>
           </div>
