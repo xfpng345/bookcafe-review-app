@@ -215,3 +215,4 @@ ja:
         image: "画像"
         area: "エリア"
         address: "住所"
+        prefecture_code: "都道府県"
