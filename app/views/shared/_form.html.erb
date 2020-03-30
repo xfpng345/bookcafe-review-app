@@ -66,57 +66,6 @@
   <% end %>
 </div>
 
-<script type="text/javascript">
-  $(function() {
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-    $('#img_prev').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $("#user_img").change(function(){
-        readURL(this);
-    });
-  });
-  $(document).ready(function(){
-    $('select').formSelect();
-  });
-
-$('.tokyo').hide();
-$('.osaka').hide();
-$('.nagoya').hide();
-
-$(function() {
-  $('#shop_prefecture_code').change(function() {
-    var val = $(this).val();
-    Number(val)
-    if (val == 13) {
-      $('.tokyo').show();
-      $('.osaka').remove();
-      $('.nagoya').remove();
-    }
-    else if (val == 27) {
-      $('.osaka').show();
-      $('.tokyo').remove();
-      $('.nagoya').remove();
-    }
-    else if (val == 23) {
-      $('.nagoya').show();
-      $('.tokyo').remove();
-      $('.osaka').remove();
-    }
-    else{
-      $('.tokyo').remove();
-      $('.osaka').remove();
-      $('.nagoya').remove();
-    }
-  });
-});
-
-</script>
 <style type="text/css">
 #img_prev{
   max-width: 400px;
