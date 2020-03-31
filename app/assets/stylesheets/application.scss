@@ -10,3 +10,10 @@
 @import "./shop";
 @import "./notifications";
 @import "./top";
+
+@font-face{
+  font-family: "komorebi-gothic";
+  src: asset_url('komorebi-gothic-P.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
