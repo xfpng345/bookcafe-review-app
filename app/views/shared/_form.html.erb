@@ -41,9 +41,10 @@
       </div>
     </div>
     <%# ラジオボタン %>
-    <div class="row">
-      <div class="with-gap col s12">
+    <div class="row radio">
+      <div class="col s12">
         <label>
+          <span class="list">Wifi</span>
           <i class="material-icons small">wifi</i>
           <%= f.radio_button :wifi, :yes, class: "with-gap"%>
           <span>有</span>
@@ -52,7 +53,12 @@
           <%= f.radio_button :wifi, :no, class: "with-gap"%>
           <span>無</span>
         </label>
+      </div>
+    </div>
+    <div class="row radio">
+      <div class="col s12">
         <label>
+          <span class="list">充電</span>
           <i class="material-icons small">power</i>
           <%= f.radio_button :power, :able, class: "with-gap"%>
           <span>できる</span>
