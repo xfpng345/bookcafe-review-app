@@ -10,10 +10,15 @@
 @import "./shop";
 @import "./notifications";
 @import "./top";
+@import "./shops_new";
 
 @font-face{
   font-family: "komorebi-gothic";
   src: asset_url('komorebi-gothic-P.ttf') format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+
+* {
+  font-family: "komorebi-gothic";
 }
