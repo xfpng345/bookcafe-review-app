@@ -1,0 +1,21 @@
+.title{
+  border-bottom: 2px dotted #ffdc00;
+  border-left: 10px solid #ffdc00;
+  padding: 7px;
+  margin-bottom: 65px;
+}
+
+.radio{
+  margin-top: 50px;
+  .radio_col{
+    border-bottom: 1px solid #9e9e9e;
+    padding-bottom: 10px;
+    .list{
+      font-size: 20px;
+    }
+    i {
+      vertical-align: -5px;
+      padding: 0 20px;
+    }
+  }
+}
