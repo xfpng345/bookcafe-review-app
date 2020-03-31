@@ -34,8 +34,8 @@
     <%# 画像 %>
     <div class="row">
       <div class="file-field col s12">
-        <div class="btn">
-          <span>Upload file</span>
+        <div class="btn #ffd600 yellow accent-4">
+          <span>画像ファイルを選択する</span>
           <%= f.file_field :image,id:"user_img" %>
         </div>
           <%= image_tag @shop.image, id: "img_prev" %>
@@ -65,7 +65,7 @@
       </div>
     </div>
     <%# 投稿ボタン %>
-    <%= f.submit "投稿", class: 'btn col s3'%>
+    <%= f.submit "投稿", class: 'btn col s3 #ffd600 yellow accent-4'%>
   <% end %>
 </div>
 
