@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200331050344) do
+ActiveRecord::Schema.define(version: 20200331053553) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
@@ -32,19 +32,19 @@ ActiveRecord::Schema.define(version: 20200331050344) do
   end
 
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                                          null: false
+    t.string   "name",                                       null: false
     t.string   "image"
     t.text     "text",            limit: 65535
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
-    t.string   "address",                                       null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "address",                                    null: false
     t.float    "latitude",        limit: 24
     t.float    "longitude",       limit: 24
-    t.string   "area",                          default: "",    null: false
+    t.string   "area",                          default: "", null: false
     t.integer  "user_id"
-    t.integer  "likes_count",                   default: 0,     null: false
-    t.boolean  "wifi",                          default: false, null: false
-    t.boolean  "power",                         default: false, null: false
+    t.integer  "likes_count",                   default: 0,  null: false
+    t.integer  "wifi",                          default: 0,  null: false
+    t.integer  "power",                         default: 0,  null: false
     t.integer  "prefecture_code"
   end
 
