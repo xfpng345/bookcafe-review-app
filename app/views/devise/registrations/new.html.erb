@@ -5,25 +5,23 @@
         <h2 class="center">新規登録</h2>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
-  
           <div class="field">
             <%= f.label :username %><br />
             <%= f.text_field :username, autofocus: true %>
           </div>
-
-          <div class="field">
-            <%= f.label :image %><br/>
-            <%= f.file_field :image,id:"file" %>
+          <div class="file-field col s12">
+            <div class="btn #fffde7 yellow lighten-5 black-text">
+              <span>アイコン画像を選択する</span>
+              <%= f.file_field :image,id:"file" %>
+            </div>
+            <input class="file-path validate" type="text">
           </div>
+          <div id="result" style="text-align: center; padding-top: 10px;"></div>  
           
-          <div id="result" style="text-align: center; padding-top: 10px;"></div>
-
-  
           <div class="field">
             <%= f.label :email %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
           </div>
-
           <div class="field">
             <%= f.label :password %>
             <% if @minimum_password_length %>
@@ -31,14 +29,11 @@
             <% end %><br />
             <%= f.password_field :password, autocomplete: "new-password" %>
           </div>
-
           <div class="field">
             <%= f.label :password_confirmation %><br />
             <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
           </div>
-
-          <%= button_tag "新規登録", class: "btn waves-effect waves-light col s12", type: "button", onclick: "submit();"%>
-
+          <%= button_tag "新規登録", class: "btn waves-effect waves-light col s12 #fffde7 yellow lighten-5 black-text", type: "button", onclick: "submit();"%>
         <% end %>
         <%= render "devise/shared/links" %>
       </div>
