@@ -42,6 +42,28 @@
         <input class="file-path validate" type="text">
       </div>
     </div> 
+    <div class="row">
+        <div class="with-gap col s12">
+          <label>
+            <i class="material-icons small">wifi</i>
+            <%= f.radio_button :wifi, :yes, class: "with-gap"%>
+            <span>有</span>
+          </label>
+          <label>
+            <%= f.radio_button :wifi, :no, class: "with-gap"%>
+            <span>無</span>
+          </label>
+          <label>
+            <i class="material-icons small">power</i>
+            <%= f.radio_button :power, :able, class: "with-gap"%>
+            <span>できる</span>
+          </label>
+          <label>
+            <%= f.radio_button :power, :unable, class: "with-gap"%>
+            <span>できない</span>
+          </label>
+      </div>
+    </div>
     <%# 投稿ボタン %>
     <%= f.submit "投稿", class: 'btn col s3'%>
   <% end %>
