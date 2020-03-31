@@ -1,5 +1,14 @@
-<div class="col s12 m12 l7">
-  <%= form_for(@shop) do |f| %>
+<%= form_for(@shop) do |f| %>
+  <%# 画像 %>
+  <div class="file-field col s12 l3">
+    <%= image_tag @shop.image, id: "img_prev" %>
+    <input class="file-path validate" type="text">
+    <div class="btn #ffd600 yellow accent-4">
+      <span>画像ファイルを選択する</span>
+      <%= f.file_field :image,id:"user_img" %>
+    </div>
+  </div>
+  <div class="col s12 m12 l7 right">
     <% @shop.errors.full_messages.each do |msg| %>
       <li class="red-text"><%= msg %></li>
     <% end %>
@@ -31,47 +40,38 @@
         <%= f.label :address %>
       </div>
     </div>
-    <%# 画像 %>
+    <%# ラジオボタン %>
     <div class="row">
-      <div class="file-field col s12">
-        <div class="btn #ffd600 yellow accent-4">
-          <span>画像ファイルを選択する</span>
-          <%= f.file_field :image,id:"user_img" %>
-        </div>
-          <%= image_tag @shop.image, id: "img_prev" %>
-        <input class="file-path validate" type="text">
-      </div>
-    </div> 
-    <div class="row">
-        <div class="with-gap col s12">
-          <label>
-            <i class="material-icons small">wifi</i>
-            <%= f.radio_button :wifi, :yes, class: "with-gap"%>
-            <span>有</span>
-          </label>
-          <label>
-            <%= f.radio_button :wifi, :no, class: "with-gap"%>
-            <span>無</span>
-          </label>
-          <label>
-            <i class="material-icons small">power</i>
-            <%= f.radio_button :power, :able, class: "with-gap"%>
-            <span>できる</span>
-          </label>
-          <label>
-            <%= f.radio_button :power, :unable, class: "with-gap"%>
-            <span>できない</span>
-          </label>
+      <div class="with-gap col s12">
+        <label>
+          <i class="material-icons small">wifi</i>
+          <%= f.radio_button :wifi, :yes, class: "with-gap"%>
+          <span>有</span>
+        </label>
+        <label>
+          <%= f.radio_button :wifi, :no, class: "with-gap"%>
+          <span>無</span>
+        </label>
+        <label>
+          <i class="material-icons small">power</i>
+          <%= f.radio_button :power, :able, class: "with-gap"%>
+          <span>できる</span>
+        </label>
+        <label>
+          <%= f.radio_button :power, :unable, class: "with-gap"%>
+          <span>できない</span>
+        </label>
       </div>
     </div>
     <%# 投稿ボタン %>
-    <%= f.submit "投稿", class: 'btn col s3 #ffd600 yellow accent-4'%>
-  <% end %>
-</div>
+    <%= f.submit "投稿", class: 'btn col s3 #ffd600 yellow accent-4 right'%>
+  </div>
+<% end %>
+<%= render "shared/gmap-new" %>
 
 <style type="text/css">
 #img_prev{
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 200px;
+  max-height: 200px;
   object-fit: contain;
 </style>
