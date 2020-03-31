@@ -19,3 +19,11 @@
     }
   }
 }
+
+#img_prev {
+  max-width: 250px;
+  max-height: 250px;
+  object-fit: contain;
+  border: 1px solid black;
+  padding: 10px;
+}

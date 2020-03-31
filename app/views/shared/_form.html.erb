@@ -5,7 +5,7 @@
     <input class="file-path validate" type="text">
     <div class="btn #ffd600 yellow accent-4">
       <span>画像ファイルを選択する</span>
-      <%= f.file_field :image,id:"user_img" %>
+      <%= f.file_field :image,id:"user_img"%>
     </div>
   </div>
   <div class="col s12 m12 l7 right">
@@ -74,10 +74,3 @@
   </div>
 <% end %>
 <%= render "shared/gmap-new" %>
-
-<style type="text/css">
-#img_prev{
-  max-width: 200px;
-  max-height: 200px;
-  object-fit: contain;
-</style>

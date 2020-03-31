@@ -23,35 +23,11 @@
   text-shadow: 1px 1px 2px gray;
 }
 
-/* label color */
-.input-field label {
-  // color: #000!important;
-}
-/* label focus color */
 .input-field input[type=text]:focus + label {
   color: #000!important;
 }
 .input-field input[type=text_area]:focus + label {
   color: #000!important;
-}
-/* label underline focus color */
-.input-field input[type=text]:focus {
-  border-bottom: 1px solid #ffdc00!important;
-  box-shadow: 0 1px 0 0 #ffdc00!important;
-}
-/* valid color */
-.input-field input[type=text].valid {
-  // border-bottom: 1px solid #000!important;
-  // box-shadow: 0 1px 0 0 #000!important;
-}
-/* invalid color */
-.input-field input[type=text].invalid {
-  // border-bottom: 1px solid #000!important;
-  // box-shadow: 0 1px 0 0 #000!important;
-}
-/* icon prefix focus color */
-.input-field .prefix.active {
-  // color: #000!important;
 }
 .input-field textarea:focus + label {
   color: #000!important;
@@ -61,4 +37,8 @@
 }
 [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
   border: 2px solid #ffdc00!important;
+}
+.input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #ffdc00!important;
+  box-shadow: 0 1px 0 0 #ffdc00!important;
 }
