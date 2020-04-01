@@ -2,13 +2,17 @@
   margin-top: 50px;
 }
 
+.cardimg{
+  max-width: 430px;
+  max-height: 400px;
+}
+
 .show-icons{
   display: inline;
 }
 
 .show-icons i{
   margin-right: 10px;
-  padding-top: 40px;
 }
 
 .show-content{
@@ -16,7 +20,25 @@
 }
 
 .show-text{
-  border: solid 1px #EEEEEE;
   padding: 10px;
   font-size: 15px;
+}
+
+.stime{
+  vertical-align: -5px;
+  padding: 10px;
+}
+
+i.tiny {
+  font-size: 1.5rem!important;
+}
+
+.borderb{
+  border-bottom: 1px solid #EEEEEE;
+  padding-bottom: 10px;
+}
+
+.sicon{
+  vertical-align: -5px;
+  padding-top: 10px;
 }

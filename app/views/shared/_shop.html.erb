@@ -1,21 +1,44 @@
-<div class="col s12 m6 l6 content">
+<div class="col s12 m11 l11 content">
+  <h4 class="title"><%= @shop.name%></h4>
   <div class="card">
-    <div class="card-image">
-      <%= image_tag @shop.image %>
-      <div class="flow-text" id="likes_buttons_<%= @shop.id %>">
-        <%= render partial: 'shared/like', locals: { shop: @shop, likes: @likes} %>
-      </div>
-      <span class="card-title"><%= @shop.name%></span>
+    <div class="row">
+    <div class="col s12 l5">
+      <%= image_tag @shop.image, class:"cardimg" %>
     </div>
-    <div class="card-content show-content">
-      <p class="show-text"><%= @shop.text %></p>
-        <div>
+    <div class="card-content show-content col s12 l6 offset-l1">
+      <%= link_to user_path(@shop.user), class:"valign-wrapper borderb" do %>
+        <%= image_tag @shop.user.image,class:"right hoverable image-icon"%>
+        <h6 class="underline"><%= @shop.user.username %></h6>
+      <% end %>
+      <div class="stime borderb">
+        <%= @shop.updated_at.strftime("%Y/%m/%d")%>
+        <i class="material-icons tiny left">access_time</i>
+      </div>
+      <div class="show-text borderb"><%= @shop.text %></div>
+        <div class="borderb">
+          <i class="material-icons tiny sicon">wifi</i>
+          <span>Wifi</span>
           <% if @shop.wifi == "yes" %>
-            <span><i class="material-icons small">wifi</i></span>
+            <span>有</span>
+          <% elsif @shop.wifi == "no" %>
+            <span>無</span>
+          <% else %>
+            <span>指定なし</span>
           <% end %>
+        </div>
+        <div class="borderb">
+          <i class="material-icons tiny sicon">power</i>
+          <span>充電</span>
           <% if @shop.power == "able" %>
-            <span><i class="material-icons small">power</i></span>
+            <span>できる</span>
+          <% elsif @shop.power == "unable" %>
+            <span>できない</span>
+          <% else %>
+            <span>指定なし</span>
           <% end %>
+        </div>
+        <div class="flow-text" id="likes_buttons_<%= @shop.id %>">
+          <%= render partial: 'shared/like', locals: { shop: @shop, likes: @likes} %>
         </div>
       <% if @shop.user == current_user %>
         <div class="show-icons right">
@@ -28,10 +51,7 @@
         </div>
       <% end %>
       <br>
-      <%= link_to user_path(@shop.user_id), class:"valign-wrapper" do %>
-        <%= image_tag @shop.user.image,class:"right hoverable image-icon"%>
-        <h6 class="underline"><%= @shop.user.username %></h6>
-      <% end %>
+    </div>
     </div>
   </div>
 </div>
