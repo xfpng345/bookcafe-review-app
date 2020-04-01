@@ -18,10 +18,14 @@
   </head>
 
   <body>
-    <%= render "shared/header"%>
-    <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-    <% end -%>
+    <%= render "shared/header"%>astaas
+    <script type="text/javascript">
+      <% flash.each do |name, msg| %>
+        <% name = "success" if name == "notice" %>
+        <% name = "error" if name == "alert" %>
+        toastr['<%= name %>']('<%= msg %>');
+      <% end %>
+    </script>
     <%= yield %>
     <%= render "shared/footer"%>
   </body>
