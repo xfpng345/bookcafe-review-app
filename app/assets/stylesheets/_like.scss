@@ -1,5 +1,22 @@
-.vertical_like{
+.indexlike{
   position: absolute;
   right: 0;
   bottom: 0;
+}
+
+.showlike{
+  font-size: 20px!important;
+  i {
+    font-size: 1.5rem;
+    vertical-align: -3px;
+  }
+}
+
+.iine {
+  font-size: 15px;
+  padding: 4px;
+}
+
+.likes{
+  display: flex;
 }

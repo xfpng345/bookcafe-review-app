@@ -37,8 +37,11 @@
             <span>指定なし</span>
           <% end %>
         </div>
-        <div class="flow-text" id="likes_buttons_<%= @shop.id %>">
-          <%= render partial: 'shared/like', locals: { shop: @shop, likes: @likes} %>
+        <div class="likes">
+          <div class="flow-text showlike" id="likes_buttons_<%= @shop.id %>">
+            <%= render partial: 'shared/like', locals: { shop: @shop, likes: @likes} %>
+          </div>
+          <span class="iine">いいね</span>
         </div>
       <% if @shop.user == current_user %>
         <div class="show-icons right">

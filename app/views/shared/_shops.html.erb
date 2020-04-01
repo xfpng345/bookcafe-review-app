@@ -24,7 +24,7 @@
           <%= image_tag shop.user.image,class:"right hoverable image-icon" %>
           <h6 class="underline"><%= shop.user.username %></h6>
         <% end %>
-        <div class="flow-text" id="likes_buttons_<%= shop.id %>">
+        <div class="flow-text indexlike" id="likes_buttons_<%= shop.id %>">
           <%= render partial: 'shared/like', locals: { shop: shop, likes: @likes} %>
         </div>
       </div>
