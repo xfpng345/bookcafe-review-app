@@ -1,4 +1,4 @@
-<div class="col s12 m11 l11 content">
+<div class="col s12 content">
   <h4 class="title"><%= @shop.name%></h4>
   <div class="card">
     <div class="row">
@@ -44,12 +44,16 @@
               </div>
               <span class="iine">いいね</span>
             </div>
-            <ul id="tabs-swipe-demo" class="tabs col l7">
-              <li class="tab col s5"><a class="active" href="#test-swipe-1">地図</a></li>
-              <li class="tab col s5"><a href="#test-swipe-2">口コミ</a></li>
+            <ul id="tabs-swipe-demo" class="tabs col l8">
+              <li class="tab col s5">
+                <a class="active" href="#test-swipe-1"><i class="material-icons tiny">location_on</i>地図</a>
+              </li>
+              <li class="tab col s7">
+                <a href="#test-swipe-2"><i class="material-icons tiny">mode_comment</i>コメント</a>
+              </li>
             </ul>
           </div>
-        <% if @shop.user == current_user %>
+        <% if @shop.user == current_user%>
           <div class="show-icons right">
             <%= link_to edit_shop_path(@shop) do %>
               <i class="material-icons underline #ffab00 amber-text text-accent-4">edit</i></a>
