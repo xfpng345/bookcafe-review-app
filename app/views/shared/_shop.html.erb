@@ -14,47 +14,49 @@
           <%= @shop.updated_at.strftime("%Y/%m/%d")%>
           <i class="material-icons tiny left">access_time</i>
         </div>
-        <div class="show-text borderb"><%= @shop.text %></div>
-          <div class="borderb">
-            <i class="material-icons tiny sicon">wifi</i>
-            <span>Wifi</span>
-            <% if @shop.wifi == "yes" %>
-              <span>有</span>
-            <% elsif @shop.wifi == "no" %>
-              <span>無</span>
-            <% else %>
-              <span>指定なし</span>
-            <% end %>
-          </div>
-          <div class="borderb">
-            <i class="material-icons tiny sicon">power</i>
-            <span>充電</span>
-            <% if @shop.power == "able" %>
-              <span>できる</span>
-            <% elsif @shop.power == "unable" %>
-              <span>できない</span>
-            <% else %>
-              <span>指定なし</span>
-            <% end %>
-          </div>
-          <div class="show-menu">
-            <div class="likes left">
-              <div class="flow-text showlike" id="likes_buttons_<%= @shop.id %>">
-                <%= render partial: 'shared/like', locals: { shop: @shop, likes: @likes} %>
-              </div>
-              <span class="iine">いいね</span>
+        <div class="show-text borderb">
+          <%= @shop.text %>
+        </div>
+        <div class="borderb">
+          <i class="material-icons tiny sicon">wifi</i>
+          <span>Wifi</span>
+          <% if @shop.wifi == "yes" %>
+            <span>有</span>
+          <% elsif @shop.wifi == "no" %>
+            <span>無</span>
+          <% else %>
+            <span>指定なし</span>
+          <% end %>
+        </div>
+        <div class="borderb">
+          <i class="material-icons tiny sicon">power</i>
+          <span>充電</span>
+          <% if @shop.power == "able" %>
+            <span>できる</span>
+          <% elsif @shop.power == "unable" %>
+            <span>できない</span>
+          <% else %>
+            <span>指定なし</span>
+          <% end %>
+        </div>
+        <div class="show-menu">
+          <div class="likes left">
+            <div class="flow-text showlike" id="likes_buttons_<%= @shop.id %>">
+              <%= render partial: 'shared/like', locals: { shop: @shop, likes: @likes} %>
             </div>
-            <ul id="tabs-swipe-demo" class="tabs col l8">
-              <li class="tab col s5">
-                <a class="active" href="#test-swipe-1"><i class="material-icons tiny">location_on</i>地図</a>
-              </li>
-              <li class="tab col s7">
-                <a href="#test-swipe-2"><i class="material-icons tiny">mode_comment</i>
-                  <%= @comments.count %>コメント
-                </a>
-              </li>
-            </ul>
+            <span class="iine">いいね</span>
           </div>
+          <ul id="tabs-swipe-demo" class="tabs col l8">
+            <li class="tab col s5">
+              <a class="active" href="#test-swipe-1"><i class="material-icons tiny">location_on</i>地図</a>
+            </li>
+            <li class="tab col s7">
+              <a href="#test-swipe-2"><i class="material-icons tiny">mode_comment</i>
+                <%= @comments.count %>コメント
+              </a>
+            </li>
+          </ul>
+        </div>
         <% if @shop.user == current_user%>
           <div class="show-icons right">
             <%= link_to edit_shop_path(@shop) do %>
