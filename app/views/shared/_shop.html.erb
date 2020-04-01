@@ -9,6 +9,14 @@
     </div>
     <div class="card-content show-content">
       <p class="show-text"><%= @shop.text %></p>
+        <div>
+          <% if @shop.wifi == "yes" %>
+            <span><i class="material-icons small">wifi</i></span>
+          <% end %>
+          <% if @shop.power == "able" %>
+            <span><i class="material-icons small">power</i></span>
+          <% end %>
+        </div>
       <% if @shop.user == current_user %>
         <div class="show-icons right">
           <%= link_to edit_shop_path(@shop) do %>
