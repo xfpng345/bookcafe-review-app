@@ -15,9 +15,19 @@
             <% end %>
           <% end %>
         </div>
-        <div class="right col s6 fff">
-          <%= render "follow_form" %>
-        </div>
+        <ul class="right col s6 ">
+          <li class="plist">
+            <%= render "follow_form" %>
+          </li>
+          <li class="plist">
+            <span><i class="material-icons tiny">local_cafe</i>投稿数</span>
+            <span><%= @user.shops.count %></span>
+          </li>
+          <li class="plist">
+            <span><i class="material-icons tiny">favorite</i>いいねした数</span>
+            <span><%= @user.like_shops.count%></span>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
