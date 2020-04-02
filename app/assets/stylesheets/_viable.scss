@@ -66,3 +66,7 @@ input[type=password]:not(.browser-default):focus:not([readonly]){
   -webkit-box-shadow: 0 1px 0 0 #ffdc00!important;
   box-shadow: 0 1px 0 0 #ffdc00!important;
 }
+
+.card.large .card-image+.card-content {
+  max-height: 85%!important;
+}
