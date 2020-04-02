@@ -2,10 +2,10 @@
   <h4 class="title"><%= @shop.name%></h4>
   <div class="card">
     <div class="row">
-      <div class="col s12 l5">
+      <div class="col s12 l4">
         <%= image_tag @shop.image, class:"cardimg" %>
       </div>
-      <div class="card-content show-content col s12 l6 offset-l1">
+      <div class="card-content show-content col s12 l6 offset-l2">
         <%= link_to user_path(@shop.user), class:"valign-wrapper borderb" do %>
           <%= image_tag @shop.user.image,class:"right hoverable image-icon"%>
           <h6 class="underline"><%= @shop.user.username %></h6>
