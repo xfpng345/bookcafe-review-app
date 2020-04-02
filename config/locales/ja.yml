@@ -216,8 +216,5 @@ ja:
         area: "エリア"
         address: "住所"
         prefecture_code: "都道府県"
-    models:
-      comment: "コメント"
-    attributes:
       comment:
         text: "コメント"
