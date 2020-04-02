@@ -3,3 +3,15 @@
   right: 0;
   bottom: 20px;
 }
+
+.card-user{
+  min-width: 50px;
+}
+
+.card-title{
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 20px!important;
+}
