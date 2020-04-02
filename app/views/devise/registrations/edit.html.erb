@@ -2,23 +2,21 @@
   <div class="row">
     <div class="col s12 m8 l6 offset-m2 offset-l3">
       <div>
-        <h2>プロフィール編集</h2>
-
+        <h2 class="center">プロフィール編集</h2>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
-
           <div class="field">
             <%= f.label :username %><br />
             <%= f.text_field :username, autofocus: true %>
           </div>
-
-          <div class="field">
-            <%= f.label :image %><br/>
-            <%= f.file_field :image,id:"file" %>
+          <div class="file-field col s12">
+            <div class="btn #fffde7 yellow lighten-5 black-text">
+              <span>アイコン画像を選択する</span>
+              <%= f.file_field :image,id:"file" %>
+            </div>
+            <input class="file-path validate" type="text">
           </div>
-          
           <div id="result" style="text-align: center; padding-top: 10px;"></div>
-
           <div class="field">
             <%= f.label :email %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -27,7 +25,6 @@
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
-
           <div class="field">
             <%= f.label :password %> <i>(変更しない場合は空白のままにして下さい)</i><br />
             <%= f.password_field :password, autocomplete: "new-password" %>
@@ -36,21 +33,16 @@
               <em>半角英数(<%= @minimum_password_length %>文字以上)</em>
             <% end %>
           </div>
-
           <div class="field">
             <%= f.label :password_confirmation %><br />
             <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
           </div>
-
           <div class="field">
             <%= f.label :current_password %> <i>(変更するには現在のパスワードを入れて下さい)</i><br />
             <%= f.password_field :current_password, autocomplete: "current-password" %>
           </div>
-
-          <%= button_tag "プロフィールを変更", class: "btn waves-effect waves-light col s12", type: "button", onclick: "submit();"%>
-
+          <%= button_tag "プロフィールを変更", class: "btn waves-effect waves-light col s12 #fffde7 yellow lighten-5 black-text", type: "button", onclick: "submit();"%>
         <% end %>
-
       </div>
     </div>
   </div>
@@ -58,30 +50,11 @@
     <div class="col s12 m8 l6 offset-m2 offset-l3">
       <div class="card-panel">
         <h3>アカウントを削除</h3>
-
         <p>アカウントを削除しますか？
-          <%= button_to "削除", registration_path(resource_name), data: { confirm: "本当に削除しますか?" }, method: :delete %>
+          <%= button_to "削除", registration_path(resource_name), data: { confirm: "本当に削除しますか?" }, method: :delete, class: "btn waves-effect waves-light col s12 #fffde7 yellow lighten-5 black-text" %>
         </p>
-
         <%= link_to "マイページに戻る", :back %>
       </div>
     </div>
   </div>
 </div>
-
-<script>
-$(function(){
-    $('#file').change(function(){
-        $('img').remove();
-        var file = $(this).prop('files')[0];
-        if(!file.type.match('image.*')){
-            return;
-        }
-        var fileReader = new FileReader();
-        fileReader.onloadend = function() {
-            $('#result').html('<img class="upload" style="width: 200px;height: 200px;border-radius: 50%;object-fit: cover;" src="' + fileReader.result + '"/>');
-        }
-        fileReader.readAsDataURL(file);
-    });
-});
-</script>

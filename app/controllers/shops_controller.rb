@@ -19,10 +19,10 @@ class ShopsController < ApplicationController
       marker.lng shop.longitude
       marker.infowindow render_to_string(partial: 'shops/infowindow', locals: { shop: shop })
     end
+    @recent_posts = Shop.where(user_id: @shop.user_id).order(created_at: :desc).limit(4)
   end
 
   def edit; end
-
   def update
     if @shop.update_attributes(shop_params)
       redirect_to @shop, notice: '投稿が編集されました。'
@@ -53,7 +53,7 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:name, :text, :image, :address, :latitude, :longitude, :area).merge(user_id: current_user.id)
+    params.require(:shop).permit(:name, :text, :image, :address, :latitude, :longitude, :area, :prefecture_code, :wifi, :power).merge(user_id: current_user.id)
   end
 
   def validate_shop

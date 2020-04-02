@@ -1,0 +1,44 @@
+<% @users.each do |user| %>
+  <% if user != current_user %>
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel grey lighten-5 z-depth-1">
+          <div class="row">
+            <div class="col s3">
+              <%= link_to user_path(user), class:"" do %>
+                <%= image_tag user.image.thumb, class: "circle responsive-img" %>
+                <div class="flow-text underline"><%= user.username%></div>
+              <% end %>
+            </div>
+            <ul class="right col s6 ">
+              <li class="plist">
+                <div id="follow_form">
+                  <%# フォロー数 %>
+                  <div class="fcount left black-text">
+                    <%= link_to following_user_path(user.id) do %>
+                      <span class="black-text underline"><%= user.following.count %>フォロー</span>
+                    <% end %>
+                  </div>
+                  <%# フォロワー数 %>
+                  <div class="fcount">
+                    <%= link_to followers_user_path(user.id) do %>
+                      <span class="black-text underline"><%= user.followers.count %>フォロワー</span>
+                    <% end %>
+                  </div>
+                </div>
+              </li>
+              <li class="plist">
+                <span><i class="material-icons tiny">local_cafe</i>投稿数</span>
+                <span><%= user.shops.count %></span>
+              </li>
+              <li class="plist">
+                <span><i class="material-icons tiny">favorite</i>いいねした数</span>
+                <span><%= user.like_shops.count%></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

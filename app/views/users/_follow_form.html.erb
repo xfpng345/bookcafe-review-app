@@ -1,0 +1,29 @@
+<div id="follow_form">
+  <%# フォローボタン %>
+  <div class="fbtn right">
+    <% if user_signed_in? && @user != current_user %>
+      <% if current_user.following?(@user) %>
+        <%= form_for(current_user, url: relationship_path(@user), method: :delete, remote: true) do |f| %>
+          <%= f.submit "フォロー中", action: "create", remote: true, class: "btn-small #f9a825 yellow darken-3" %>
+        <% end %>
+      <% else %>
+        <%= form_for(current_user, url: relationships_path, method: :post, remote: true) do |f| %>
+          <%= hidden_field_tag :following_id, @user.id %>
+          <%= f.submit "フォローする", action: "create", remote: true, class: "btn-small #fdd835 yellow darken-1" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+    <%# フォロー数 %>
+  <div class="fcount left black-text">
+    <%= link_to following_user_path(@user.id) do %>
+      <span class="black-text underline"><%= @user.following.count %>フォロー</span>
+    <% end %>
+  </div>
+  <%# フォロワー数 %>
+  <div class="fcount">
+    <%= link_to followers_user_path(@user.id) do %>
+      <span class="black-text underline"><%= @user.followers.count %>フォロワー</span>
+    <% end %>
+  </div>
+</div>

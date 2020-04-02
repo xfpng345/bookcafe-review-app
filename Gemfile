@@ -25,6 +25,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
 gem 'fog-aws'
+gem 'jp_prefecture'
+gem 'toastr-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

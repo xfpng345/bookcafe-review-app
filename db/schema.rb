@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200106045111) do
+ActiveRecord::Schema.define(version: 20200401122644) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
@@ -31,18 +31,29 @@ ActiveRecord::Schema.define(version: 20200106045111) do
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
+  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "follower_id"
+    t.integer  "following_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true, using: :btree
+  end
+
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                                  null: false
+    t.string   "name",                                       null: false
     t.string   "image"
-    t.text     "text",        limit: 65535
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.string   "address",                               null: false
-    t.float    "latitude",    limit: 24
-    t.float    "longitude",   limit: 24
-    t.string   "area",                                  null: false
+    t.text     "text",            limit: 65535
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "address",                                    null: false
+    t.float    "latitude",        limit: 24
+    t.float    "longitude",       limit: 24
+    t.string   "area",                          default: "", null: false
     t.integer  "user_id"
-    t.integer  "likes_count",               default: 0, null: false
+    t.integer  "likes_count",                   default: 0,  null: false
+    t.integer  "wifi",                          default: 0,  null: false
+    t.integer  "power",                         default: 0,  null: false
+    t.integer  "prefecture_code"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

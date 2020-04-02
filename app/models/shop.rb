@@ -16,4 +16,10 @@ class Shop < ApplicationRecord
 
   validates :name, presence: true
   validates :text, presence: true
+
+  include JpPrefecture
+  jp_prefecture :prefecture_code
+
+  enum wifi: { yes: 1, no: 2 }
+  enum power: { able: 1, unable: 2 }
 end

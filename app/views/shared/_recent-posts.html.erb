@@ -1,0 +1,14 @@
+<div class="col s9 content recent-posts">
+  <h5 class="title2"><%= @shop.user.username%>さんの最近の投稿</h5>
+  <% @recent_posts.each do |post| %>
+    <div class="left recent-posts_post">
+      <% unless post.id == @shop.id %>
+        <%= link_to shop_path(post) do %>
+          <%= image_tag post.image, class: "hoverable" %>
+          <p class="underline"><%= post.name %></p>
+        <% end %>
+        <p><%= post.updated_at.strftime("%Y/%m/%d")%></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

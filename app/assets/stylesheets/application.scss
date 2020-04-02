@@ -10,3 +10,19 @@
 @import "./shop";
 @import "./notifications";
 @import "./top";
+@import "./shops_new";
+@import "./shops_destroy";
+@import "./recent_posts";
+@import "./follow_form";
+@import "toastr";
+
+@font-face{
+  font-family: "komorebi-gothic";
+  src: asset_url('komorebi-gothic-P.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "komorebi-gothic";
+}

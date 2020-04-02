@@ -22,3 +22,47 @@
 .shadow-text{
   text-shadow: 1px 1px 2px gray;
 }
+
+.input-field input[type=text]:focus + label {
+  color: #000!important;
+}
+.input-field input[type=text_area]:focus + label {
+  color: #000!important;
+}
+.input-field textarea:focus + label {
+  color: #000!important;
+}
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+  background-color: #ffdc00!important;
+}
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+  border: 2px solid #ffdc00!important;
+}
+.input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #ffdc00!important;
+  box-shadow: 0 1px 0 0 #ffdc00!important;
+}
+
+input[type=search]:not(.browser-default):focus:not([readonly]){
+  border-bottom: 1px solid #ffdc00!important;
+  -webkit-box-shadow: 0 1px 0 0 #ffdc00!important;
+  box-shadow: 0 1px 0 0 #ffdc00!important;
+}
+
+.select-wrapper input.select-dropdown:focus {
+  border-bottom: 1px solid #ffdc00!important;
+}
+
+input.valid[type=text]:not(.browser-default){
+  border-bottom: 1px solid #ffdc00!important;
+  -webkit-box-shadow: 0 1px 0 0 #ffdc00!important;
+  box-shadow: 0 1px 0 0 #ffdc00!important;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]){
+  border-bottom: 1px solid #ffdc00!important;
+  -webkit-box-shadow: 0 1px 0 0 #ffdc00!important;
+  box-shadow: 0 1px 0 0 #ffdc00!important;
+}

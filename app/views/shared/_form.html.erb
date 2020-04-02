@@ -1,8 +1,17 @@
-<div class="col s12 m12 l7">
-  <%= form_for(@shop) do |f| %>
-    <% @shop.errors.full_messages.each do |msg| %>
-      <li class="red-text"><%= msg %></li>
-    <% end %>
+<%= form_for(@shop) do |f| %>
+  <% @shop.errors.full_messages.each do |msg| %>
+    <li class="red-text"><%= msg %></li>
+  <% end %>
+  <%# 画像 %>
+  <div class="file-field col s12 l3">
+    <%= image_tag @shop.image, id: "img_prev" %>
+    <input class="file-path validate" type="text">
+    <div class="btn #ffd600 yellow accent-4">
+      <span>画像ファイルを選択する</span>
+      <%= f.file_field :image,id:"user_img"%>
+    </div>
+  </div>
+  <div class="col s12 m12 l7 right">
     <%# ショップ名 %>
     <div class="row">
       <div class="input-field col s12">
@@ -17,18 +26,13 @@
         <%= f.label :text %>
       </div>
     </div>
-    <%# エリア %>
+    <%# 都道府県 %>
     <div class="row">
-    <div class="input-field col s12">
-      <%= f.select :area, ['キタ(梅田)エリア', 'ミナミ(なんば)エリア', '天王寺・阿倍野・新世界エリア','その他'], {include_blank: 'エリアを選択してください'}%>
-      <%= f.label :area %>
+      <div class="input-field col s12">
+        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, include_blank: '都道府県を選択してください' %>
+        <%= f.label :prefecture_code %>
+      </div>
     </div>
-    </div>
-    <script>
-      $(document).ready(function(){
-        $('select').formSelect();
-      });
-    </script>
     <%# 住所 %>
     <div class="row">
       <div class="input-field col s12">
@@ -36,42 +40,37 @@
         <%= f.label :address %>
       </div>
     </div>
-    <%# 画像 %>
-    <div class="row">
-      <div class="file-field col s12">
-        <div class="btn">
-          <span>Upload file</span>
-          <%= f.file_field :image,id:"user_img" %>
-        </div>
-          <%= image_tag @shop.image, id: "img_prev" %>
-        <input class="file-path validate" type="text">
+    <%# ラジオボタン %>
+    <div class="row radio">
+      <div class="col s12 radio_col">
+        <label>
+          <span class="list">Wifi</span>
+          <i class="material-icons small">wifi</i>
+          <%= f.radio_button :wifi, :yes, class: "with-gap"%>
+          <span>有</span>
+        </label>
+        <label>
+          <%= f.radio_button :wifi, :no, class: "with-gap"%>
+          <span>無</span>
+        </label>
       </div>
-    </div> 
+    </div>
+    <div class="row radio">
+      <div class="col s12 radio_col">
+        <label>
+          <span class="list">充電</span>
+          <i class="material-icons small">power</i>
+          <%= f.radio_button :power, :able, class: "with-gap"%>
+          <span>できる</span>
+        </label>
+        <label>
+          <%= f.radio_button :power, :unable, class: "with-gap"%>
+          <span>できない</span>
+        </label>
+      </div>
+    </div>
     <%# 投稿ボタン %>
-    <%= f.submit "投稿", class: 'btn col s3'%>
-  <% end %>
-</div>
-
-<script type="text/javascript">
-  $(function() {
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-    $('#img_prev').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $("#user_img").change(function(){
-        readURL(this);
-    });
-  });
-</script>
-
-<style type="text/css">
-#img_prev{
-  max-width: 400px;
-  max-height: 400px;
-  object-fit: contain;
-</style>
+    <%= f.submit "投稿", class: 'btn col s3 #ffd600 yellow accent-4 right'%>
+  </div>
+<% end %>
+<%= render "shared/gmap-new" %>
