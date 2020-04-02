@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="valign-wrapper">
+    <h4 class="left"><%= @user.username %>さん</h4>
+    <h5 class="">をフォローしているユーザー</h5>
+  </div>
+  <% if @users.empty? %>
+    <h4>まだいません。</h4>
+  <% else %>
+    <div class="row">
+      <%= render "follow_and_following" %>
+    </div>
+  <% end %>
+</div>
