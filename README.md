@@ -3,7 +3,7 @@
 就職活動用のポートフォリオとして制作した自作アプリです。<br />
 お気に入りのブックカフェを位置情報と共に投稿出来ます。機能としてはシンプルですが、開発環境にDocker、インフラにAWSを使用しています。
 
-[![Screenshot from Gyazo](https://gyazo.com/0793fb40108b7baa77c4b21730b91372/raw)](https://gyazo.com/0793fb40108b7baa77c4b21730b91372)
+[![Screenshot from Gyazo](https://gyazo.com/48c6dd1ee90ac1522b1e4aba6adc8f4b/raw)](https://gyazo.com/48c6dd1ee90ac1522b1e4aba6adc8f4b)
 
 ## 制作背景
 
