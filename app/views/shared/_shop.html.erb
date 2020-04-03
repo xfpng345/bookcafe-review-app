@@ -11,12 +11,12 @@
           <h6 class="underline"><%= @shop.user.username %></h6>
         <% end %>
         <div class="stime borderb">
-          <%= @shop.updated_at.strftime("%Y/%m/%d")%>
           <i class="material-icons tiny left">access_time</i>
+          <%= @shop.updated_at.strftime("%Y/%m/%d")%>
         </div>
         <div class="stime borderb">
-          <%= @shop.address%>
           <i class="material-icons tiny left">near_me</i>
+          <%= @shop.address%>
         </div>
         <div class="show-text borderb">
           <%= @shop.text %>
