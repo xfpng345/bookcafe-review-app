@@ -1,0 +1,16 @@
+<div id="map2" class="gmap-show"></div>
+
+<script src="//maps.google.com/maps/api/js?key=AIzaSyB6GxRwG_nFSYMLRwIGde9C4_pI2uycmOk"></script>
+<script>
+  handler = Gmaps.build('Google');
+  handler.buildMap({
+    provider: {},
+    internal: {id: 'map2'}},
+    function(){
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setCenter(new google.maps.LatLng(35.681298, 139.7640582));
+    handler.getMap().setZoom(10);
+  });
+</script>
