@@ -32,6 +32,16 @@
           <%= image_tag shop.user.image,class:"right hoverable image-icon" %>
           <h6 class="underline card-user"><%= shop.user.username %></h6>
         <% end %>
+          <div class="edit-delete">
+            <% if shop.user == current_user%>
+              <%= link_to edit_shop_path(shop) do %>
+                <i class="material-icons underline #ffab00 amber-text text-accent-4">edit</i>
+              <% end %>
+              <%= link_to shop_path(shop), data: { confirm: "本当に削除しますか?" }, method: :delete do %>
+                <i class="material-icons underline #ffab00 amber-text text-accent-4">delete</i>
+              <% end %>
+            <% end %>
+          </div>
         <div class="flow-text indexlike" id="likes_buttons_<%= shop.id %>">
           <%= render partial: 'shared/like', locals: { shop: shop, likes: @likes} %>
         </div>
