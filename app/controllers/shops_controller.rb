@@ -5,10 +5,14 @@ class ShopsController < ApplicationController
   before_action :validate_shop, only: %i[edit update destroy]
   before_action :set_shop, only: %i[show edit update destroy]
 
+  PER_PAGE_MAX = 9
+  SLIDER_LINKS = 5
+  RECENT_POSTS_MAX = 4
+
   def index
     @search = Shop.ransack(params[:q])
-    @shops = @search.result.page(params[:page]).per(9).order('updated_at DESC')
-    @random = Shop.order('RAND()').limit(5)
+    @shops = @search.result.page(params[:page]).per(PER_PAGE_MAX).order('updated_at DESC')
+    @random = Shop.order('RAND()').limit(SLIDER_LINKS)
   end
 
   def show
@@ -19,7 +23,7 @@ class ShopsController < ApplicationController
       marker.lng shop.longitude
       marker.infowindow render_to_string(partial: 'shops/infowindow', locals: { shop: shop })
     end
-    @recent_posts = Shop.where(user_id: @shop.user_id).order(created_at: :desc).limit(4)
+    @recent_posts = Shop.where(user_id: @shop.user_id).order(created_at: :desc).limit(RECENT_POSTS_MAX)
   end
 
   def edit; end
