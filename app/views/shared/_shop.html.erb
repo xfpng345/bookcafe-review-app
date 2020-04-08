@@ -1,4 +1,16 @@
 <div class="col s12 content">
+        <% if @shop.user == current_user%>
+          <div class="show-icons right">
+            <%= link_to edit_shop_path(@shop) do %>
+              <i class="material-icons underline #ffab00 amber-text text-accent-4 small">edit</i>
+              <span class="#ffab00 amber-text text-accent-4">編集</span>
+            <% end %>
+            <%= link_to shop_path(@shop), data: { confirm: "本当に削除しますか?" }, method: :delete do %>
+              <i class="material-icons underline #ffab00 amber-text text-accent-4 small">delete</i>
+              <span class="unerline #ffab00 amber-text text-accent-4">削除</span>
+            <% end %>
+          </div>
+        <% end %>
   <h4 class="title"><%= @shop.name%></h4>
   <div class="card">
     <div class="row">
@@ -62,16 +74,6 @@
             </li>
           </ul>
         </div>
-        <% if @shop.user == current_user%>
-          <div class="show-icons right">
-            <%= link_to edit_shop_path(@shop) do %>
-              <i class="material-icons underline #ffab00 amber-text text-accent-4">edit</i></a>
-            <% end %>
-            <%= link_to shop_path(@shop), data: { confirm: "本当に削除しますか?" }, method: :delete do %>
-              <i class="material-icons underline #ffab00 amber-text text-accent-4">delete</i></a>
-            <% end %>
-          </div>
-        <% end %>
       </div>
       <%= render "shared/show-right"%>
     </div>
