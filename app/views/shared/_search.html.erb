@@ -12,30 +12,22 @@
           </div>
           <div class="col m4 l2">
             <%= f.label :sorts, "並び順"%>
-            <%= f.select( :sorts, {'並び替え': 'updated_at desc', 'いいねの多い順': 'likes_count desc','いいねの少ない': 'likes_count asc','日付の新しい順': 'updated_at desc', '日付の古い順': 'updated_at asc' })%>
+            <%= f.select( :sorts, {'並び替え': 'updated_at desc', 'いいねの多い順': 'likes_count desc','日付の新しい順': 'updated_at desc', '日付の古い順': 'updated_at asc' })%>
           </div>
-          <div class="col m4 l3">
+          <div class="col m4 l3 radiob">
             <label>
               <span class="list">Wifi</span>
               <i class="material-icons small lists">wifi</i>
               <%= f.radio_button :wifi_eq, 1, class: "with-gap"%>
               <span>有</span>
             </label>
-            <label>
-              <%= f.radio_button :wifi_eq, 2, class: "with-gap"%>
-              <span>無</span>
-            </label>
           </div>
-          <div class="col m4 l3">
+          <div class="col m4 l3 radiob">
             <label>
               <span class="list">充電</span>
               <i class="material-icons small lists">power</i>
               <%= f.radio_button :power_eq, 1, class: "with-gap"%>
               <span>できる</span>
-            </label>
-            <label>
-              <%= f.radio_button :power_eq, 2, class: "with-gap"%>
-              <span>できない</span>
             </label>
           </div>
           <%= f.submit "検索", class: 'btn #ffd600 yellow accent-4 search-btn'%>

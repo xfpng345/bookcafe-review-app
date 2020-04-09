@@ -5,7 +5,7 @@
   <div class="row">
     <%# コメント投稿 %>
     <% if user_signed_in? %>
-      <div class="col s6">
+      <div class="col s6 right">
         <%= render partial: 'shared/form-comment', locals: { comment: @comment, shop: @shop } %>
       </div>
     <% end %>
