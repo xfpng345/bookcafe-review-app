@@ -5,6 +5,7 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><%= link_to '投稿一覧', shops_path, method: :get %></li>
+        <li><%= link_to 'マップから探す', mapindex_path, method: :get %></li>
         <% if user_signed_in? %>
           <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
           <li>
@@ -27,6 +28,7 @@
 
 <ul class="sidenav" id="mobile-demo">
   <li><%= link_to '投稿一覧', shops_path, method: :get %></li>
+  <li><%= link_to 'マップから探す', mapindex_path, method: :get %></li>
   <% if user_signed_in? %>
     <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
     <li>

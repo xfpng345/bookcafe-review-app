@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ShopsController < ApplicationController
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!, except: %i[index show mapindex]
   before_action :validate_shop, only: %i[edit update destroy]
   before_action :set_shop, only: %i[show edit update destroy]
 
@@ -52,6 +52,16 @@ class ShopsController < ApplicationController
 
   def destroy
     @shop.destroy
+  end
+
+  def mapindex
+    @posts = Shop.all
+    @hash = Gmaps4rails.build_markers(@posts) do |post, marker|
+      marker.lat post.latitude
+      marker.lng post.longitude
+      marker.infowindow render_to_string(partial: 'shops/infowindow2', locals: { shop: post })
+    end
+    # binding.pry
   end
 
   private
