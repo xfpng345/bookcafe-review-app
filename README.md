@@ -40,6 +40,7 @@ https://bookcafedb.com/
 * 検索機能（Ransackを使用）
 * Rspecによる自動テスト機能
 * フォロー・フォロワー機能
+* googlemapにすべての投稿を表示
 
 ## 課題、今後実装したい機能
 * テストを充実させる
