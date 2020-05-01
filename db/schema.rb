@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200401122644) do
+ActiveRecord::Schema.define(version: 20200501054317) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
@@ -29,6 +29,21 @@ ActiveRecord::Schema.define(version: 20200401122644) do
     t.datetime "updated_at", null: false
     t.index ["shop_id"], name: "index_likes_on_shop_id", using: :btree
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
+  end
+
+  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "visitor_id",                 null: false
+    t.integer  "visited_id",                 null: false
+    t.integer  "post_id"
+    t.integer  "comment_id"
+    t.string   "action",     default: "",    null: false
+    t.boolean  "checked",    default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["comment_id"], name: "index_notifications_on_comment_id", using: :btree
+    t.index ["post_id"], name: "index_notifications_on_post_id", using: :btree
+    t.index ["visited_id"], name: "index_notifications_on_visited_id", using: :btree
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id", using: :btree
   end
 
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
