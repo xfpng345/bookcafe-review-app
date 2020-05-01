@@ -36,6 +36,10 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -48,13 +52,6 @@ group :development do
   gem 'bcrypt_pbkdf'
   gem 'rubocop', require: false
   gem 'rubocop-rails'
-end
-
-group :development, :test do
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
 end
 
 group :production, :staging do
