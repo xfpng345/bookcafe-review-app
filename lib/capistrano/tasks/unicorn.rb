@@ -1,5 +1,5 @@
 # unicornのpidファイル、設定ファイルのディレクトリを指定
-namespace :unicorn do
+namespace :unicorn do # rubocop:disable all
   task :environment do
     set :unicorn_pid,    "#{shared_path}/tmp/pids/unicorn.pid"
     set :unicorn_config, "#{current_path}/config/unicorn/production.rb"

@@ -7,9 +7,9 @@ feature 'search', type: :feature do
   let(:shop) { create(:shop) }
 
   scenario 'search shop with shop.name' do
-    shop1 = create(:shop, name: 'aaa')
-    shop2 = create(:shop, name: 'bbb')
-    shop3 = create(:shop, name: 'ccc')
+    shop1 = create(:shop, name: 'aaa')# rubocop:disable all
+    shop2 = create(:shop, name: 'bbb')# rubocop:disable all
+    shop3 = create(:shop, name: 'ccc')# rubocop:disable all
 
     visit new_user_session_path
     # fill_in 'user_email', with: user.email
