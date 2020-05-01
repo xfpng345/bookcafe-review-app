@@ -17,7 +17,15 @@
             <% end %>
           </li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to "通知", notifications_path %></li>
+          <li>
+            <%= link_to "通知", notifications_path, class: "nlink" %>
+            <div>
+              <i class="material-icons notification">notifications</i>
+              <% if unchecked_notifications.any? %>
+                <div class="red-dot"></div>
+              <% end %>
+            </div>
+          </li>
         <% else %>
           <li><%= link_to '投稿する', new_shop_path, method: :get %></li>
           <li><%= link_to "ログイン", new_user_session_path%></li>
