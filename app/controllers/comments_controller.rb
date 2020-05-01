@@ -7,7 +7,10 @@ class CommentsController < ApplicationController
     @shop = Shop.find(params[:shop_id])
     @comment = @shop.comments.new(comment_params)
     @comment.user_id = current_user.id
-    render :comment if @comment.save
+    if @comment.save
+      @shop.create_notification_comment!(current_user, @comment.id)
+      render :comment 
+    end
   end
 
   def destroy
