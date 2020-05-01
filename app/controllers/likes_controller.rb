@@ -6,6 +6,7 @@ class LikesController < ApplicationController
   def create
     @like = Like.create(user_id: current_user.id, shop_id: params[:shop_id])
     @likes = Like.where(shop_id: params[:shop_id])
+    @shop.create_notification_like!(current_user)
     @shop.reload
   end
 
