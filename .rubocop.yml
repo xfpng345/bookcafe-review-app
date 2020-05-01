@@ -23,8 +23,12 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 
 LineLength:
-  Max: 100
+  Max: 180
 
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+
+Metrics/AbcSize:
+  Enabled: true
+  Max: 20
