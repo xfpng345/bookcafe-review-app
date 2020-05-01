@@ -27,8 +27,9 @@ class ShopsController < ApplicationController
   end
 
   def edit; end
+
   def update
-    if @shop.update_attributes(shop_params)
+    if @shop.update(shop_params)
       redirect_to @shop, notice: '投稿が編集されました。'
     else
       flash.now[:alert] = '編集に失敗しました。'

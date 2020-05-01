@@ -16,8 +16,7 @@ class ApplicationController < ActionController::Base
     user_path(@user)
   end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     shops_path
   end
-
 end
