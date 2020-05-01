@@ -16,6 +16,9 @@ class User < ApplicationRecord
   has_many :follower_relationships, foreign_key: 'following_id', class_name: 'Relationship', dependent: :destroy, inverse_of: :user
   has_many :followers, through: :follower_relationships
 
+  has_many :active_notifications, foreign_key: 'visitor_id', class_name: 'Notification', dependent: :destroy
+  has_many :passive_notifications, foreign_key: 'visited_id', class_name: 'Notification', dependent: :destroy
+
   mount_uploader :image, ImageUploader
 
   validates :username, presence: true, length: { maximum: 10 }

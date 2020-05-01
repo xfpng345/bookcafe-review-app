@@ -4,6 +4,7 @@ class Shop < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   geocoded_by :address
   after_validation :geocode
