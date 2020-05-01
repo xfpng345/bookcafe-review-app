@@ -35,7 +35,6 @@ group :development, :test do
   gem 'faker', '~> 2.8'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
-  gem 'rubocop', require: false
   gem 'rspec_junit_formatter'
 end
 
@@ -47,6 +46,8 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails'
 end
 
 group :development, :test do
