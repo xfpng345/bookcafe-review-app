@@ -23,4 +23,6 @@ Rails.application.routes.draw do
 
   get 'mapindex' => 'shops#mapindex'
 
+  resources :notifications, only: :index
+
 end
