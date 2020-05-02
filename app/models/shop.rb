@@ -25,18 +25,16 @@ class Shop < ApplicationRecord
   enum power: { able: 1, unable: 2 }
 
   def create_notification_like!(current_user)
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and shop_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
-    if temp.blank?
-      notification = current_user.active_notifications.new(
-        shop_id: id,
-        visited_id: user_id,
-        action: 'like'
-      )
-      if notification.visitor_id == notification.visited_id
-        notification.checked = true
-      end
-      notification.save if notification.valid?
-    end
+    temp = Notification.where(['visitor_id = ? and visited_id = ? and shop_id = ? and action = ? ', current_user.id, user_id, id, 'like'])
+    return if temp.present?
+
+    notification = current_user.active_notifications.new(
+      shop_id: id,
+      visited_id: user_id,
+      action: 'like'
+    )
+    notification.checked = true if notification.visitor_id == notification.visited_id
+    notification.save if notification.valid?
   end
 
   def create_notification_comment!(current_user, comment_id)
@@ -56,5 +54,4 @@ class Shop < ApplicationRecord
     )
     notification.save if notification.valid?
   end
-
 end
