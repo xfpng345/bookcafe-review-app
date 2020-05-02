@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment = @shop.comments.new(comment_params)
     if @comment.save
       @shop.create_notification_comment!(current_user, @comment.id)
-      render :comment 
+      render :comment
     end
   end
 
