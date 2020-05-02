@@ -1,0 +1,24 @@
+<div class="container">
+  <h4 class="header title">通知</h4>
+  <% @notifications.each do |notification| %>
+    <div class="ncontent">
+      <%= link_to user_path(notification.visitor) do %>
+        <%= notification.visitor.username %>
+      <% end %>
+      <span>さんが</span>
+      <% case notification.action %>
+        <% when "follow" then %>
+          <i class="material-icons nicon">chat_bubble</i>
+          <span>あなたをフォローしました。</span>
+        <% when "like" then %>
+          <i class="material-icons nicon">favorite</i>
+          <%= link_to "あなたの投稿", shop_path(notification.shop_id)%>にいいねしました。
+        <% when "comment" then %>
+          <i class="material-icons nicon">chat_bubble</i>
+          <%= link_to "あなたの投稿", shop_path(notification.shop_id)%>にコメントしました。
+        <% end %>
+      <%= " (#{time_ago_in_words(notification.created_at)}前)" %>
+    </div>
+  <% end %>
+  <%= paginate @notifications %>
+</div>

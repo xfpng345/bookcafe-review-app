@@ -1,0 +1,31 @@
+.ncontent{
+  position: relative;
+  padding-left: 30px;
+  font-size: 20px;
+  margin : 10px;
+}
+
+.nicon{
+  position: absolute;
+  left: 0;
+}
+
+.nlink{
+  padding-right: 50px;
+}
+
+.red-dot{
+  position: absolute;
+  background-color: red;
+  border-radius: 50%;
+  height: 11px;
+  width: 11px;
+  right: 15px;
+  bottom: 35px;
+}
+
+.notification{
+  position: absolute;
+  right: 14px;
+  top: 0px;
+}
