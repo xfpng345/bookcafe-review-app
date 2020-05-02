@@ -26,15 +26,15 @@ class Shop < ApplicationRecord
 
   def create_notification_like!(current_user)
     temp = Notification.where(['visitor_id = ? and visited_id = ? and shop_id = ? and action = ? ', current_user.id, user_id, id, 'like'])
-    if temp.blank?
-      notification = current_user.active_notifications.new(
-        shop_id: id,
-        visited_id: user_id,
-        action: 'like'
-      )
-      notification.checked = true if notification.visitor_id == notification.visited_id
-      notification.save if notification.valid?
-    end
+    return if temp.present?
+
+    notification = current_user.active_notifications.new(
+      shop_id: id,
+      visited_id: user_id,
+      action: 'like'
+    )
+    notification.checked = true if notification.visitor_id == notification.visited_id
+    notification.save if notification.valid?
   end
 
   def create_notification_comment!(current_user, comment_id)

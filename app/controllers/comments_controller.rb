@@ -6,10 +6,10 @@ class CommentsController < ApplicationController
   def create
     @shop = Shop.find(params[:shop_id])
     @comment = @shop.comments.new(comment_params)
-    if @comment.save
-      @shop.create_notification_comment!(current_user, @comment.id)
-      render :comment
-    end
+    return unless @comment.save
+
+    @shop.create_notification_comment!(current_user, @comment.id)
+    render :comment
   end
 
   def destroy
