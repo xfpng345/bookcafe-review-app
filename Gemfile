@@ -27,6 +27,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'toastr-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'byebug', platform: :mri
