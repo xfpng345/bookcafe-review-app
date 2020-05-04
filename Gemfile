@@ -20,6 +20,10 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
 gem 'ransack'
@@ -27,10 +31,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'toastr-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'byebug', platform: :mri
