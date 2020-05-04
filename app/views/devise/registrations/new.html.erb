@@ -37,6 +37,20 @@
           <%= button_tag "新規登録", class: "btn waves-effect waves-light col s12 #fffde7 yellow lighten-5 black-text", type: "button", onclick: "submit();"%>
         <% end %>
         <%= render "devise/shared/links" %>
+        <div>
+          <P class="sns">
+            <%= image_tag "facebook.png" %>
+            <%= link_to "FaceBookで登録する", user_facebook_omniauth_authorize_path %>
+          </P>
+          <P class="sns">
+            <%= image_tag "google.jpg" %>
+            <%= link_to "Googleで登録する", user_google_oauth2_omniauth_authorize_path %>
+          </P>
+          <P class="sns">
+            <%= image_tag "twitter.png" %>
+            <%= link_to "Twitterで登録する", user_twitter_omniauth_authorize_path %>
+          </P>
+        </div>
       </div>
     </div>
   </div>
