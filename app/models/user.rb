@@ -56,7 +56,7 @@ class User < ApplicationRecord
   end
 
   def password_required?
-    super && provider.blank?  # provider属性に値があればパスワード入力免除
+    super && provider.blank?
   end
 
   def update_with_password(params, *options)
