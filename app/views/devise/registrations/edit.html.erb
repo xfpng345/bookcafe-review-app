@@ -25,7 +25,7 @@
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
-          <% if f.object.password_required? %>
+          <% if @user.provider.nil? %>
             <div class="field">
               <%= f.label :password %> <i>(変更しない場合は空白のままにして下さい)</i><br />
               <%= f.password_field :password, autocomplete: "new-password" %>
