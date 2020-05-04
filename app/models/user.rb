@@ -58,4 +58,17 @@ class User < ApplicationRecord
   def password_required?
     super && provider.blank?  # provider属性に値があればパスワード入力免除
   end
+
+  def update_with_password(params, *options)
+    if encrypted_password.blank?
+      params.delete(:current_password)
+      if params[:password].blank?
+        params.delete(:password)
+        params.delete(:password_confirmation) if params[:password_confirmation].blank?
+      end
+      update_attributes(params, *options)
+    else
+      super
+    end
+  end
 end
