@@ -25,22 +25,24 @@
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
-          <div class="field">
-            <%= f.label :password %> <i>(変更しない場合は空白のままにして下さい)</i><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
-            <% if @minimum_password_length %>
-              <br />
-              <em>半角英数(<%= @minimum_password_length %>文字以上)</em>
-            <% end %>
-          </div>
-          <div class="field">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-          </div>
-          <div class="field">
-            <%= f.label :current_password %> <i>(変更するには現在のパスワードを入れて下さい)</i><br />
-            <%= f.password_field :current_password, autocomplete: "current-password" %>
-          </div>
+          <% if @user.provider.nil? %>
+            <div class="field">
+              <%= f.label :password %> <i>(変更しない場合は空白のままにして下さい)</i><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+              <% if @minimum_password_length %>
+                <br />
+                <em>半角英数(<%= @minimum_password_length %>文字以上)</em>
+              <% end %>
+            </div>
+            <div class="field">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+            <div class="field">
+              <%= f.label :current_password %> <i>(変更するには現在のパスワードを入れて下さい)</i><br />
+              <%= f.password_field :current_password, autocomplete: "current-password" %>
+            </div>
+          <% end %>
           <%= button_tag "プロフィールを変更", class: "btn waves-effect waves-light col s12 #fffde7 yellow lighten-5 black-text", type: "button", onclick: "submit();"%>
         <% end %>
       </div>
