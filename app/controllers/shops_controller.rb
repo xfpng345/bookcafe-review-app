@@ -11,7 +11,7 @@ class ShopsController < ApplicationController
 
   def index
     @search = Shop.ransack(params[:q])
-    @shops = @search.result.page(params[:page]).per(PER_PAGE_MAX).order('updated_at DESC')
+    @shops = @search.result.includes(:user, :likes).page(params[:page]).per(PER_PAGE_MAX).order('updated_at DESC')
     @random = Shop.order('RAND()').limit(SLIDER_LINKS)
   end
 
