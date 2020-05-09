@@ -17,6 +17,16 @@ crumb :edit_user do |user|
   parent :user, user
 end
 
+crumb :following_user do |user|
+  link "フォロー", following_user_path
+  parent :user, user
+end
+
+crumb :followers_user do |user|
+  link "フォロワー", followers_user_path
+  parent :user, user
+end
+
 crumb :shop do |shop|
   link shop.name, shop_path
   parent :shops
