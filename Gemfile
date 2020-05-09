@@ -14,6 +14,7 @@ gem 'devise-i18n-views'
 gem 'fog-aws'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'gretel'
 gem 'jbuilder', '~> 2.5'
 gem 'jp_prefecture'
 gem 'jquery-rails'
@@ -48,6 +49,7 @@ end
 
 group :development do
   gem 'bcrypt_pbkdf'
+  gem 'bullet'
   gem 'ed25519'
   gem 'listen', '~> 3.0.5'
   gem 'pry-rails'
@@ -56,7 +58,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
-  gem 'bullet'
 end
 
 group :production, :staging do

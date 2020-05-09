@@ -62,7 +62,6 @@ class ShopsController < ApplicationController
       marker.lng post.longitude
       marker.infowindow render_to_string(partial: 'shops/infowindow2', locals: { shop: post })
     end
-    # binding.pry
   end
 
   private
