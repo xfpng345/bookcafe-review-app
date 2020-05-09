@@ -8,8 +8,13 @@ crumb :shops do
 end
 
 crumb :user do |user|
-  link user.username, user_path
+  link user.username, user_path(user)
   parent :shops
+end
+
+crumb :edit_user do |user|
+  link "編集", edit_user_registration_path
+  parent :user, user
 end
 
 crumb :shop do |shop|
