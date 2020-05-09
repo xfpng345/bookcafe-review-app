@@ -16,3 +16,8 @@ crumb :shop do |shop|
   link shop.name, shop_path
   parent :shops
 end
+
+crumb :edit_shop do |shop|
+  link "編集", edit_shop_path
+  parent :shop, shop
+end
