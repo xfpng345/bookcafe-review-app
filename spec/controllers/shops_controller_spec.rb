@@ -38,9 +38,9 @@ describe ShopsController do
           expect { subject }.to change(Shop, :count).by(1)
         end
 
-        it 'redirects to shops_path' do
+        it 'redirects to shop_path' do
           subject
-          expect(response).to redirect_to(shops_path)
+          expect(response).to redirect_to(shop_path(assigns[:shop]))
         end
 
         context 'can not save' do
