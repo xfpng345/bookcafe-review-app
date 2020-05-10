@@ -43,6 +43,8 @@ https://bookcafedb.com/
 * googlemapにすべての投稿を表示
 * 通知機能
 * SNS登録・ログイン機能(Google/FaceBook/Twitter,omniauth)
+* SNSシェア機能(Facebook/Twitter)
+* パンくず機能
 
 ## 課題、今後実装したい機能
 * テストを充実させる
