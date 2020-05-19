@@ -70,3 +70,14 @@ input[type=password]:not(.browser-default):focus:not([readonly]){
 .card.large .card-image+.card-content {
   max-height: 85%!important;
 }
+
+.activator{
+  object-fit: cover!important;
+  height: 250px!important;
+}
+
+nav .brand-logo {
+  font-size: 3.1rem!important;
+  font-weight: bold!important;
+  padding: 10px!important;
+}

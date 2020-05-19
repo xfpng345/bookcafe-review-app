@@ -1,12 +1,12 @@
 <% shops.each do |shop| %>
-  <div class = "col s12 m6 l4">
+  <div class = "col s12 m12 l4">
     <div class="card large #fffde7 yellow lighten-5">
       <div class="card-image waves-effect waves-block waves-light">
         <%= image_tag shop.image, class:"activator"%>
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4"><%= shop.name %><i class="material-icons right">more_vert</i></span>
-        <ul>
+        <span class="card-title activator grey-text text-darken-4"><%= shop.name %></span>
+        <ul class="card-icons">
           <li>
             <% if shop.prefecture_code.present? %>
               <%= shop.prefecture.name %>
