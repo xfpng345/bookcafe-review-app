@@ -5,10 +5,10 @@
           <div class="col s12 m12 l3">
             <%= f.search_field :name_or_user_username_cont, placeholder: "店名またはユーザー名で探す "  %>
           </div>
-          <div class="col m5 l3 search-form">
+          <div class="col m6 l3 search-form">
             <%= f.collection_select :prefecture_code_eq_any, JpPrefecture::Prefecture.all, :code, :name, include_blank: '都道府県を選択してください' %>
           </div>
-          <div class="col m4 l2 search-form">
+          <div class="col m5 l2 search-form">
             <%= f.select( :sorts, {'並び替え': 'updated_at desc', 'いいねの多い順': 'likes_count desc','日付の新しい順': 'updated_at desc', '日付の古い順': 'updated_at asc' })%>
           </div>
           <div class="col radiob">
