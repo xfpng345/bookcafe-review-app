@@ -5,8 +5,8 @@
         <%= image_tag shop.image, class:"activator"%>
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4"><%= shop.name %><i class="material-icons right">more_vert</i></span>
-        <ul>
+        <span class="card-title activator grey-text text-darken-4"><%= shop.name %></span>
+        <ul class="card-icons">
           <li>
             <% if shop.prefecture_code.present? %>
               <%= shop.prefecture.name %>
