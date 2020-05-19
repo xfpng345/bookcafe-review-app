@@ -2,7 +2,7 @@
   <div class="nav-wrapper row">
     <div class="col s12">
         <%= search_form_for @search do |f| %>
-          <div class="col s12 m12 l2">
+          <div class="col s12 m12 l3">
             <%= f.search_field :name_or_user_username_cont, placeholder: "店名またはユーザー名で探す "  %>
           </div>
           <div class="col m5 l3 search-form">
@@ -11,7 +11,7 @@
           <div class="col m4 l2 search-form">
             <%= f.select( :sorts, {'並び替え': 'updated_at desc', 'いいねの多い順': 'likes_count desc','日付の新しい順': 'updated_at desc', '日付の古い順': 'updated_at asc' })%>
           </div>
-          <div class="col m4 l3 radiob">
+          <div class="col radiob">
             <label>
               <span class="list">Wifi</span>
               <i class="material-icons small lists">wifi</i>
@@ -19,7 +19,7 @@
               <span>有</span>
             </label>
           </div>
-          <div class="col m4 l3 radiob">
+          <div class="col radiob">
             <label>
               <span class="list">充電</span>
               <i class="material-icons small lists">power</i>
