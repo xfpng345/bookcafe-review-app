@@ -18,3 +18,15 @@ services:
       - "3000:3000"
     links:
       - db
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - '80:80'
+      #socketファイルの共有
+    volumes: 
+      - sockets:/app/tmp/sockets
+    depends_on: 
+      - app
