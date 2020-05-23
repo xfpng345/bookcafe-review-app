@@ -66,14 +66,15 @@ jobs:
       - store_test_results:
           path: test_results
 
-      - add_ssh_keys:
-          fingerprints:
-            - "41:ce:db:36:2f:19:67:ff:6f:df:ee:ea:3d:5d:a3:f3"
+      # capistranoデプロイECSのコンテナデプロイに移行中
+      # - add_ssh_keys:
+      #     fingerprints:
+      #       - "41:ce:db:36:2f:19:67:ff:6f:df:ee:ea:3d:5d:a3:f3"
 
-      - deploy:
-          name: Capistrano deploy
-          command: |
-            if [ "${CIRCLE_BRANCH}" != "master" ]; then
-              exit 0
-            fi
-            bundle exec cap production deploy
+      # - deploy:
+      #     name: Capistrano deploy
+      #     command: |
+      #       if [ "${CIRCLE_BRANCH}" != "master" ]; then
+      #         exit 0
+      #       fi
+      #       bundle exec cap production deploy
